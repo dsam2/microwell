@@ -1,0 +1,18 @@
+# Environment & System files
+.DS_Store
+Thumbs.db
+*.log
+
+# Python cache & virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+
+# Editor & Scratch directories
+.vscode/
+.idea/
+scratch/
+tmp/

@@ -1,0 +1,1753 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <!-- STRICTLY TWO FONTS: RALEWAY (HEADINGS/NAV/BADGES) & MERRIWEATHER (BODY/DESCRIPTIONS) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Commercial Mattress Catalog | MICROWELL MATTRESS®</title>
+  <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+  
+  <!-- FONTSHARE: CLASH DISPLAY & SATOSHI -->
+  
+  
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            canvas: '#f2f2f2',
+            ink: '#111111',
+            mutedGray: '#b6b5b5',
+            subtleGray: '#838282',
+            darkFooter: '#1e1e1e',
+            brand: {
+              purple: '#582C84',
+              magenta: '#C0227B'
+            }
+          },
+          fontFamily: {
+            clash: ['"Clash Display"', 'system-ui', 'sans-serif'],
+            satoshi: ['Satoshi', 'system-ui', 'sans-serif'],
+            heading: ['"Clash Display"', 'system-ui', 'sans-serif'],
+            body: ['Satoshi', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --bg-canvas: #ffffff;
+      --text-ink: #111111;
+      --font-heading: 'Raleway', sans-serif;
+      --font-body: 'Merriweather', serif;
+      --font-mono: 'Raleway', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--text-ink);
+      font-family: var(--font-body);
+      font-weight: 500;
+    }
+
+    h1, h2, h3, h4, h5, h6, .font-heading {
+      font-family: var(--font-heading);
+      letter-spacing: -0.05em;
+      line-height: 0.95;
+    }
+
+    .luxury-transition {
+      transition: transform 700ms cubic-bezier(0.77, 0, 0.175, 1), 
+                  filter 700ms cubic-bezier(0.77, 0, 0.175, 1);
+    }
+  
+    /* HPX ARROW FILL BUTTON (FRAMER COMPONENT COMPATIBLE) */
+    .hpx-afb {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      height: 44px;
+      width: fit-content;
+      min-width: fit-content;
+      cursor: pointer;
+      overflow: hidden;
+      border-radius: 9999px;
+      padding: 0 22px;
+      padding-right: calc(var(--icon-circle, 32px) + var(--icon-right, 6px) + 14px);
+      white-space: nowrap;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      line-height: 1;
+      text-rendering: geometricPrecision;
+      text-decoration: none;
+      --icon-circle: 32px;
+      --icon-right: 6px;
+      --circle-inset-y: calc((100% - var(--icon-circle)) / 2);
+      background-color: var(--btn-bg, #111111);
+      color: var(--btn-text, #ffffff);
+      border: 1px solid var(--btn-border, #111111);
+      transition: border-color var(--btn-duration, 450ms) cubic-bezier(0.785, 0.135, 0.15, 0.86),
+                  box-shadow var(--btn-duration, 450ms) cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    }
+
+    .hpx-afb.w-full {
+      width: 100% !important;
+      max-width: 100%;
+    }
+
+    .hpx-afb--sm {
+      height: 38px;
+      padding: 0 18px;
+      font-size: 11px;
+      --icon-circle: 26px;
+      --icon-right: 5px;
+      padding-right: calc(var(--icon-circle) + var(--icon-right) + 12px);
+    }
+
+    .hpx-afb--lg {
+      height: 52px;
+      padding: 0 30px;
+      font-size: 13px;
+      --icon-circle: 38px;
+      --icon-right: 7px;
+      padding-right: calc(var(--icon-circle) + var(--icon-right) + 18px);
+    }
+
+    .hpx-afb__label {
+      position: relative;
+      z-index: 1;
+      padding-bottom: 1px;
+    }
+
+    .hpx-afb__circle {
+      pointer-events: none;
+      position: absolute;
+      z-index: 2;
+      border-radius: 9999px;
+      background-color: var(--btn-fill-bg, #ffffff);
+      top: var(--circle-inset-y);
+      bottom: var(--circle-inset-y);
+      right: var(--icon-right);
+      left: calc(100% - var(--icon-right) - var(--icon-circle));
+      transition: background-color var(--btn-duration, 450ms) cubic-bezier(0.785, 0.135, 0.15, 0.86),
+                  inset var(--btn-duration, 450ms) cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    }
+
+    .hpx-afb:hover .hpx-afb__circle,
+    .hpx-afb:active .hpx-afb__circle {
+      background-color: var(--btn-fill-bg-hover, #ffffff);
+      inset: 0;
+    }
+
+    .hpx-afb__mask {
+      pointer-events: none;
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      padding: 0 22px;
+      padding-right: calc(var(--icon-circle, 32px) + var(--icon-right, 6px) + 14px);
+      color: var(--btn-fill-text, #111111);
+      clip-path: inset(var(--circle-inset-y) var(--icon-right) var(--circle-inset-y) calc(100% - var(--icon-right) - var(--icon-circle)));
+      transition: color var(--btn-duration, 450ms) cubic-bezier(0.785, 0.135, 0.15, 0.86),
+                  clip-path var(--btn-duration, 450ms) cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    }
+
+    .hpx-afb--sm .hpx-afb__mask {
+      padding: 0 18px;
+      padding-right: calc(var(--icon-circle) + var(--icon-right) + 12px);
+    }
+
+    .hpx-afb--lg .hpx-afb__mask {
+      padding: 0 30px;
+      padding-right: calc(var(--icon-circle) + var(--icon-right) + 18px);
+    }
+
+    .hpx-afb:hover .hpx-afb__mask,
+    .hpx-afb:active .hpx-afb__mask {
+      color: var(--btn-fill-text-hover, #111111);
+      clip-path: inset(0 0 0 0);
+    }
+
+    .hpx-afb__mask-label {
+      position: relative;
+      z-index: 1;
+      padding-bottom: 1px;
+      white-space: nowrap;
+    }
+
+    .hpx-afb__icon {
+      pointer-events: none;
+      position: absolute;
+      right: var(--icon-right);
+      top: 50%;
+      z-index: 3;
+      display: inline-flex;
+      height: var(--icon-circle);
+      width: var(--icon-circle);
+      flex-shrink: 0;
+      transform: translateY(-50%);
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: 9999px;
+      background-color: var(--btn-fill-bg, #ffffff);
+      color: var(--btn-arrow, #111111);
+      -webkit-mask-image: -webkit-radial-gradient(white, black);
+      mask-image: radial-gradient(white, black);
+      transition: background-color var(--btn-duration, 450ms) cubic-bezier(0.785, 0.135, 0.15, 0.86),
+                  color var(--btn-duration, 450ms) cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    }
+
+    .hpx-afb:hover .hpx-afb__icon,
+    .hpx-afb:active .hpx-afb__icon {
+      background-color: var(--btn-fill-bg-hover, #ffffff);
+      color: var(--btn-arrow-hover, #111111);
+    }
+
+    .hpx-afb__icon-svg {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 14px;
+      height: 14px;
+      transform-origin: center;
+      color: currentColor;
+      transition: transform var(--btn-duration, 450ms) cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    }
+
+    .hpx-afb--lg .hpx-afb__icon-svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .hpx-afb--sm .hpx-afb__icon-svg {
+      width: 12px;
+      height: 12px;
+    }
+
+    .hpx-afb__icon-svg--enter {
+      transform: translate(-170%, -50%) scale(0);
+    }
+
+    .hpx-afb:hover .hpx-afb__icon-svg--enter,
+    .hpx-afb:active .hpx-afb__icon-svg--enter {
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .hpx-afb__icon-svg--exit {
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .hpx-afb:hover .hpx-afb__icon-svg--exit,
+    .hpx-afb:active .hpx-afb__icon-svg--exit {
+      transform: translate(70%, -50%) scale(0);
+    }
+  
+    /* STORY BREEZE CAROUSEL (FRAMER STORYBREEZE COMPATIBLE) */
+    .story-breeze-root {
+      position: relative;
+      width: 100%;
+      outline: none;
+      user-select: none;
+      -webkit-user-select: none;
+      overflow: hidden;
+      padding: 40px 0 60px;
+    }
+
+    .story-breeze-viewport {
+      position: relative;
+      width: 100%;
+      height: 580px;
+      touch-action: pan-y;
+      cursor: grab;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .story-breeze-viewport:active {
+      cursor: grabbing;
+    }
+
+    @media (max-width: 1024px) {
+      .story-breeze-viewport {
+        height: 760px;
+      }
+    }
+
+    .story-breeze-card {
+      position: absolute;
+      width: min(960px, 90vw);
+      height: 520px;
+      border-radius: 24px;
+      background: #ffffff;
+      border: 1px solid rgba(30, 30, 30, 0.12);
+      box-shadow: 0 30px 70px -48px rgba(27, 26, 23, 0.5);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      transition: transform 600ms cubic-bezier(0.785, 0.135, 0.15, 0.86),
+                  opacity 600ms cubic-bezier(0.785, 0.135, 0.15, 0.86),
+                  filter 600ms cubic-bezier(0.785, 0.135, 0.15, 0.86),
+                  box-shadow 600ms ease;
+      will-change: transform, opacity, filter;
+    }
+
+    @media (max-width: 1024px) {
+      .story-breeze-card {
+        grid-template-columns: 1fr;
+        grid-template-rows: 280px 1fr;
+        height: 700px;
+      }
+    }
+
+    .story-breeze-card.is-active {
+      transform: translate3d(0, 0, 0) scale(1);
+      opacity: 1;
+      filter: blur(0px);
+      z-index: 30;
+      pointer-events: auto;
+      cursor: default;
+    }
+
+    .story-breeze-card.is-prev {
+      transform: translate3d(-65%, 0, 0) scale(0.88);
+      opacity: 0.45;
+      filter: blur(3px);
+      z-index: 20;
+      cursor: pointer;
+    }
+
+    .story-breeze-card.is-next {
+      transform: translate3d(65%, 0, 0) scale(0.88);
+      opacity: 0.45;
+      filter: blur(3px);
+      z-index: 20;
+      cursor: pointer;
+    }
+
+    .story-breeze-card.is-hidden-left {
+      transform: translate3d(-130%, 0, 0) scale(0.75);
+      opacity: 0;
+      filter: blur(8px);
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    .story-breeze-card.is-hidden-right {
+      transform: translate3d(130%, 0, 0) scale(0.75);
+      opacity: 0;
+      filter: blur(8px);
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    /* Photo column */
+    .sb-photo-wrap {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #111111;
+    }
+
+    .sb-photo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .story-breeze-card:hover .sb-photo-img {
+      transform: scale(1.04);
+    }
+
+    .sb-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      padding: 7px 14px 6px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.92);
+      color: #111111;
+      font-family: var(--font-heading);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      z-index: 2;
+    }
+
+    /* Text details column */
+    .sb-details {
+      padding: 36px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #111111;
+      overflow: hidden;
+    }
+
+    @media (max-width: 640px) {
+      .sb-details {
+        padding: 24px;
+      }
+    }
+
+    .sb-quote {
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.6;
+      color: rgba(17, 17, 17, 0.85);
+      margin: 12px 0 20px;
+      font-style: italic;
+    }
+
+    .sb-specs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px 20px;
+      padding: 16px 0;
+      border-top: 1px solid rgba(17, 17, 17, 0.1);
+      border-bottom: 1px solid rgba(17, 17, 17, 0.1);
+      margin-bottom: 20px;
+    }
+
+    /* Controls bar */
+    .sb-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .sb-round-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid rgba(27, 26, 23, 0.15);
+      background: #ffffff;
+      color: #111111;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      box-shadow: 0 10px 24px -14px rgba(27, 26, 23, 0.3);
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+                  background-color 0.2s,
+                  color 0.2s,
+                  box-shadow 0.2s;
+    }
+
+    .sb-round-btn:hover {
+      background: #111111;
+      color: #ffffff;
+      transform: scale(1.06);
+    }
+
+    .sb-round-btn:active {
+      transform: scale(0.92);
+    }
+
+    .sb-dots {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sb-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 9999px;
+      background: rgba(17, 17, 17, 0.2);
+      cursor: pointer;
+      transition: width 350ms cubic-bezier(0.16, 1, 0.3, 1), background-color 350ms ease;
+    }
+
+    .sb-dot.is-active {
+      width: 28px;
+      background-color: #582C84;
+      border-radius: 9999px;
+    }
+
+  
+    /* FIXED TRANSPARENT MODERN NAVBAR */
+    .modern-navbar-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 76px;
+      z-index: 50;
+      background-color: transparent;
+      border-bottom: 1px solid transparent;
+      transition: background-color 300ms ease, backdrop-filter 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
+    }
+
+    .modern-navbar-header.is-scrolled {
+      background-color: transparent !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      border-bottom: 1px solid transparent !important;
+      box-shadow: none !important;
+    }
+
+    .modern-navbar-inner {
+      max-width: 1600px;
+      width: 100%;
+      height: 100%;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    @media (min-width: 640px) {
+      .modern-navbar-inner {
+        padding: 0 36px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .modern-navbar-inner {
+        padding: 0 48px;
+      }
+    }
+
+    /* Brand Logo */
+    .modern-brand-logo-box {
+      width: 38px;
+      height: 38px;
+      border-radius: 9999px;
+      border: 1px solid rgba(30, 30, 30, 0.15);
+      padding: 2px;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      flex-shrink: 0;
+    }
+
+    /* Nav links pill group */
+    .modern-nav-group {
+      display: none;
+      align-items: center;
+      gap: 4px;
+      background-color: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 4px 5px;
+      border-radius: 9999px;
+      border: 1px solid rgba(30, 30, 30, 0.1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    @media (min-width: 920px) {
+      .modern-nav-group {
+        display: flex;
+      }
+    }
+
+    .modern-nav-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 16px;
+      border-radius: 9999px;
+      font-family: var(--font-heading);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: rgba(17, 17, 17, 0.75);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background-color 220ms cubic-bezier(0.16, 1, 0.3, 1),
+                  color 220ms cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .modern-nav-link:hover {
+      background-color: rgba(88, 44, 132, 0.08);
+      color: #582C84;
+      transform: translateY(-1px);
+    }
+
+    .modern-nav-link.is-active {
+      background-color: #582C84;
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(88, 44, 132, 0.28);
+    }
+
+    .modern-nav-link.is-active:hover {
+      background-color: #582C84;
+      color: #ffffff;
+      transform: none;
+    }
+
+    /* Mobile hamburger menu button */
+    .modern-menu-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      border-radius: 9999px;
+      border: 1px solid rgba(17, 17, 17, 0.15);
+      background-color: #ffffff;
+      cursor: pointer;
+      padding: 0;
+      transition: background-color 200ms ease, border-color 200ms ease, transform 150ms ease;
+    }
+
+    @media (min-width: 920px) {
+      .modern-menu-btn {
+        display: none;
+      }
+    }
+
+    .modern-menu-btn:hover {
+      background-color: rgba(17, 17, 17, 0.05);
+      border-color: rgba(17, 17, 17, 0.3);
+    }
+
+    .modern-menu-btn:active {
+      transform: scale(0.94);
+    }
+
+    .modern-menu-line {
+      width: 18px;
+      height: 2px;
+      background-color: #111111;
+      border-radius: 9999px;
+      transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1),
+                  opacity 200ms ease;
+      transform-origin: center;
+    }
+
+    .modern-menu-btn.is-open .modern-menu-line-1 {
+      transform: translateY(3.5px) rotate(45deg);
+    }
+
+    .modern-menu-btn.is-open .modern-menu-line-2 {
+      transform: translateY(-3.5px) rotate(-45deg);
+    }
+
+    /* Mobile drawer positioned directly beneath fixed top bar */
+    .modern-mobile-drawer {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(30, 30, 30, 0.1);
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transform: translateY(-8px);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1),
+                  opacity 280ms ease;
+    }
+
+    .modern-mobile-drawer.is-open {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modern-mobile-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 13px 18px;
+      border-radius: 9999px;
+      font-family: var(--font-heading);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #111111;
+      text-decoration: none;
+      background: rgba(17, 17, 17, 0.03);
+      transition: background-color 200ms ease, color 200ms ease;
+    }
+
+    .modern-mobile-link:hover {
+      background: #582C84;
+      color: #ffffff;
+    }
+
+    .modern-mobile-link.is-active {
+      background: #582C84;
+      color: #ffffff;
+    }
+
+    .modern-backdrop-overlay {
+      position: fixed;
+      inset: 0;
+      top: 76px;
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 300ms ease;
+      z-index: 48;
+    }
+
+    .modern-backdrop-overlay.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* ======================================================== */
+    /* FRAMER WEB-PRELOAD COMPONENT (MICROWELL SPECIFICATION)   */
+    /* ======================================================== */
+    .framer-web-preload {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 99999;
+      pointer-events: auto;
+      overflow: hidden;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .framer-preload-curtain {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      will-change: transform;
+      transform: translateY(0%);
+      transition: transform 1000ms cubic-bezier(1, 0.01, 0.38, 1.01);
+    }
+
+    .framer-web-preload.is-exiting .framer-preload-curtain {
+      transform: translateY(-100%);
+    }
+
+    /* Ambient Radial Blooms */
+    .preload-radial {
+      position: absolute;
+      width: 720px;
+      height: 720px;
+      border-radius: 9999px;
+      pointer-events: none;
+      filter: blur(70px);
+      -webkit-filter: blur(70px);
+      opacity: 0.8;
+      transform: scale(0.9);
+      transition: transform 2200ms cubic-bezier(0.16, 1, 0.3, 1), opacity 2200ms ease;
+    }
+
+    .preload-radial-purple {
+      bottom: -260px;
+      left: -260px;
+      background: radial-gradient(circle, rgba(88, 44, 132, 0.22) 0%, rgba(88, 44, 132, 0.08) 45%, rgba(255, 255, 255, 0) 70%);
+      animation: pulseRadialPurple 4000ms ease-in-out infinite alternate;
+    }
+
+    .preload-radial-magenta {
+      top: -260px;
+      right: -260px;
+      background: radial-gradient(circle, rgba(192, 34, 123, 0.18) 0%, rgba(192, 34, 123, 0.06) 45%, rgba(255, 255, 255, 0) 70%);
+      animation: pulseRadialMagenta 4000ms ease-in-out infinite alternate;
+    }
+
+    @keyframes pulseRadialPurple {
+      0% { transform: scale(0.85) translate(0, 0); opacity: 0.7; }
+      100% { transform: scale(1.05) translate(30px, -20px); opacity: 0.95; }
+    }
+
+    @keyframes pulseRadialMagenta {
+      0% { transform: scale(0.85) translate(0, 0); opacity: 0.7; }
+      100% { transform: scale(1.05) translate(-30px, 20px); opacity: 0.95; }
+    }
+
+    /* Center Content Cluster */
+    .preload-content-center {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 24px;
+      max-width: 900px;
+    }
+
+    /* Brand Badge */
+    .preload-brand-badge {
+      width: 56px;
+      height: 56px;
+      border-radius: 9999px;
+      background-color: #ffffff;
+      border: 1px solid rgba(30, 30, 30, 0.12);
+      box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.08);
+      padding: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      opacity: 0;
+      transform: scale(0.6) translateY(20px);
+      animation: badgeAppear 800ms cubic-bezier(0.16, 1, 0.3, 1) 150ms forwards;
+    }
+
+    @keyframes badgeAppear {
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    /* Title: MICROWELL Staggered Character Animation */
+    .preload-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.75rem, 8.5vw, 6.25rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      text-transform: uppercase;
+      color: #111111;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .preload-char {
+      display: inline-block;
+      opacity: 0.001;
+      filter: blur(12px);
+      transform: scale(1.8) translateY(30px);
+      animation: charAppear 900ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation-delay: calc(300ms + (var(--char-idx) * 55ms));
+    }
+
+    .preload-registered {
+      display: inline-block;
+      font-size: 0.35em;
+      vertical-align: super;
+      margin-left: 2px;
+      color: #838282;
+      opacity: 0;
+      transform: scale(0.5);
+      animation: charAppear 800ms cubic-bezier(0.16, 1, 0.3, 1) 850ms forwards;
+    }
+
+    @keyframes charAppear {
+      to {
+        opacity: 1;
+        filter: blur(0px);
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    /* Slogan Staggered Cycle */
+    .preload-slogan-wrapper {
+      margin-top: 20px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .preload-slogan {
+      font-family: var(--font-heading);
+      font-size: clamp(11px, 2vw, 14px);
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #838282;
+      margin: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 1px;
+    }
+
+    .preload-slogan-char {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(14px);
+      animation: sloganCharIn 350ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation-delay: calc(var(--slogan-idx) * 22ms);
+    }
+
+    .preload-slogan-char.is-exiting {
+      animation: sloganCharOut 250ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation-delay: calc(var(--slogan-idx) * 15ms);
+    }
+
+    @keyframes sloganCharIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes sloganCharOut {
+      to {
+        opacity: 0;
+        transform: translateY(-14px);
+      }
+    }
+
+    /* Skip hint */
+    .preload-skip-hint {
+      margin-top: 36px;
+      font-family: var(--font-heading);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(17, 17, 17, 0.3);
+      cursor: pointer;
+      transition: color 200ms ease;
+    }
+
+    .preload-skip-hint:hover {
+      color: rgba(17, 17, 17, 0.8);
+    }
+
+  
+    
+
+  
+    ::selection {
+      background-color: rgba(192, 34, 123, 0.22);
+      color: #582C84;
+    }
+  </style>
+</head>
+<body class="bg-canvas text-ink antialiased selection:bg-[#111111] selection:text-white min-h-screen flex flex-col justify-between">
+
+  <!-- FRAMER WEB-PRELOAD COMPONENT (MICROWELL EDITION) -->
+  <div id="framerWebPreload" class="framer-web-preload" aria-hidden="false">
+    <div class="framer-preload-curtain" id="preloadCurtain">
+      
+      <!-- RADIAL AMBIENT GLOWS -->
+      <div class="preload-radial preload-radial-purple"></div>
+      <div class="preload-radial preload-radial-magenta"></div>
+
+      <!-- CENTER CONTENT CLUSTER -->
+      <div class="preload-content-center">
+        
+        <!-- BRAND BADGE (MICROWELL MONOGRAM / EMBLEM) -->
+        <div class="preload-brand-badge" id="preloadBadge">
+          <img src="assets/logo.jpg" alt="Microwell Mattress Logo" class="w-full h-full object-contain">
+        </div>
+
+        <!-- STAGGERED CHARACTER TITLE: MICROWELL -->
+        <h1 class="preload-title" id="preloadTitle" aria-label="MICROWELL">
+          <span class="preload-char" style="--char-idx: 0">M</span>
+          <span class="preload-char" style="--char-idx: 1">I</span>
+          <span class="preload-char" style="--char-idx: 2">C</span>
+          <span class="preload-char" style="--char-idx: 3">R</span>
+          <span class="preload-char" style="--char-idx: 4">O</span>
+          <span class="preload-char" style="--char-idx: 5">W</span>
+          <span class="preload-char" style="--char-idx: 6">E</span>
+          <span class="preload-char" style="--char-idx: 7">L</span>
+          <span class="preload-char" style="--char-idx: 8">L</span>
+          <span class="preload-registered" style="--char-idx: 9">®</span>
+        </h1>
+
+        <!-- STAGGERED TEXT CYCLE (SLOGAN) -->
+        <div class="preload-slogan-wrapper">
+          <p class="preload-slogan" id="preloadSlogan"></p>
+        </div>
+
+        <!-- TAP TO SKIP HINT -->
+        <div class="preload-skip-hint">Click anywhere to skip</div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- STICKY HEADER (80PX HEIGHT, 90% OPACITY, BACKDROP-BLUR 12PX) -->
+  <!-- STICKY HEADER (HEIGHT: 80PX, 90% OPACITY, BACKDROP-BLUR 12PX) -->
+  <!-- STICKY HEADER (HEIGHT: 80PX, 90% OPACITY, BACKDROP-BLUR 12PX) -->
+  <!-- MODERN NAVBAR (FRAMER MODERN-NAVBAR COMPONENT COMPATIBLE) -->
+  <header class="modern-navbar-header" id="modernNavbar">
+    <div class="modern-navbar-inner">
+      
+      <!-- BRAND IDENTITY -->
+      <a href="index.html" class="flex items-center gap-3.5 group flex-shrink-0">
+        <div class="modern-brand-logo-box">
+          <img src="assets/logo.jpg" alt="Microwell Mattress Logo" class="w-full h-full object-contain">
+        </div>
+        <div class="flex flex-col">
+          <span class="font-raleway font-bold text-xl tracking-[-0.04em] text-ink uppercase leading-none">
+            MICRO<span class="text-[#582C84]">WELL</span><span class="text-xs align-top font-merriweather ml-0.5">®</span>
+          </span>
+          <span class="font-raleway text-[9px] uppercase tracking-[0.2em] text-ink font-bold drop-shadow-[0_1px_2px_rgba(255,255,255,0.85)]">
+            EXPLORING THE WORLD IN COMFORT
+          </span>
+        </div>
+      </a>
+
+      <!-- RIGHT CLUSTER: MODERN PILL NAV LINK GROUP + CTA BUTTON + MOBILE TRIGGER -->
+      <div class="flex items-center gap-4 sm:gap-6 ml-auto">
+        
+        <!-- MODERN PILL NAV LINKS GROUP (FRAMER NAVLINKGROUP) -->
+        <nav class="modern-nav-group" aria-label="Main Navigation">
+          <a href="commercial-mattress-catalog.html" class="modern-nav-link is-active">Catalog</a>
+          <a href="commercial-mattress-spec-sheets.html" class="modern-nav-link ">Spec Sheets</a>
+          <a href="mattress-certifications-compliance.html" class="modern-nav-link ">Compliance</a>
+          <a href="wholesale-dealer-portal.html" class="modern-nav-link ">Dealer Portal</a>
+        </nav>
+
+        <!-- CTA BUTTON (FRAMER ARROWFILLBUTTON) -->
+        <div class="hidden sm:flex items-center">
+          <a href="wholesale-dealer-portal.html" class="hpx-afb hpx-afb--sm" style="--btn-bg: #582C84; --btn-text: #ffffff; --btn-border: #582C84; --btn-fill-bg: #ffffff; --btn-fill-text: #ffffff; --btn-fill-bg-hover: #C0227B; --btn-fill-text-hover: #ffffff; --btn-arrow: #582C84; --btn-arrow-hover: #ffffff; --btn-duration: 450ms;">
+  <span class="hpx-afb__label">Request Wholesale Quote</span>
+  <div aria-hidden="true" class="hpx-afb__circle"></div>
+  <div aria-hidden="true" class="hpx-afb__mask">
+    <span class="hpx-afb__mask-label">Request Wholesale Quote</span>
+  </div>
+  <span aria-hidden="true" class="hpx-afb__icon">
+    <svg class="hpx-afb__icon-svg hpx-afb__icon-svg--enter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"></path>
+      <path d="m12 5 7 7-7 7"></path>
+    </svg>
+    <svg class="hpx-afb__icon-svg hpx-afb__icon-svg--exit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"></path>
+      <path d="m12 5 7 7-7 7"></path>
+    </svg>
+  </span>
+</a>
+        </div>
+
+        <!-- MOBILE HAMBURGER BUTTON (FRAMER MENUICON: 2-LINE MORPHING SVG) -->
+        <button type="button" id="modernMenuToggle" class="modern-menu-btn" aria-label="Toggle navigation menu" onclick="toggleModernNavbar()">
+          <span class="modern-menu-line modern-menu-line-1"></span>
+          <span class="modern-menu-line modern-menu-line-2"></span>
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- MOBILE EXPANDING DRAWER (FRAMER PHONE OPENED VARIANT) -->
+    <div id="modernMobileDrawer" class="modern-mobile-drawer" aria-hidden="true">
+      <a href="commercial-mattress-catalog.html" class="modern-mobile-link is-active">
+        <span>Catalog</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="commercial-mattress-spec-sheets.html" class="modern-mobile-link ">
+        <span>Spec Sheets</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="mattress-certifications-compliance.html" class="modern-mobile-link ">
+        <span>Compliance</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="wholesale-dealer-portal.html" class="modern-mobile-link ">
+        <span>Dealer Portal</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <div class="pt-2">
+        <a href="wholesale-dealer-portal.html" class="hpx-afb w-full" style="--btn-bg: #582C84; --btn-text: #ffffff; --btn-border: #582C84; --btn-fill-bg: #ffffff; --btn-fill-text: #ffffff; --btn-fill-bg-hover: #C0227B; --btn-fill-text-hover: #ffffff; --btn-arrow: #582C84; --btn-arrow-hover: #ffffff; --btn-duration: 450ms;">
+  <span class="hpx-afb__label">Request Wholesale Quote</span>
+  <div aria-hidden="true" class="hpx-afb__circle"></div>
+  <div aria-hidden="true" class="hpx-afb__mask">
+    <span class="hpx-afb__mask-label">Request Wholesale Quote</span>
+  </div>
+  <span aria-hidden="true" class="hpx-afb__icon">
+    <svg class="hpx-afb__icon-svg hpx-afb__icon-svg--enter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"></path>
+      <path d="m12 5 7 7-7 7"></path>
+    </svg>
+    <svg class="hpx-afb__icon-svg hpx-afb__icon-svg--exit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"></path>
+      <path d="m12 5 7 7-7 7"></path>
+    </svg>
+  </span>
+</a>
+      </div>
+    </div>
+
+    <!-- BACKDROP OVERLAY FOR CLICK-OUTSIDE -->
+    <div id="modernBackdrop" class="modern-backdrop-overlay" onclick="toggleModernNavbar(false)"></div>
+  </header>
+
+  <!-- MODERN NAVBAR CONTROLLER SCRIPT -->
+  <script>
+    (function() {
+      const header = document.getElementById('modernNavbar');
+      const toggle = document.getElementById('modernMenuToggle');
+      const drawer = document.getElementById('modernMobileDrawer');
+      const backdrop = document.getElementById('modernBackdrop');
+
+      window.toggleModernNavbar = function(forceState) {
+        if (!toggle || !drawer || !backdrop) return;
+        const isOpen = typeof forceState === 'boolean' ? forceState : !drawer.classList.contains('is-open');
+        if (header) header.classList.toggle('is-menu-open', isOpen);
+        toggle.classList.toggle('is-open', isOpen);
+        drawer.classList.toggle('is-open', isOpen);
+        backdrop.classList.toggle('is-open', isOpen);
+        drawer.setAttribute('aria-hidden', String(!isOpen));
+      };
+
+      window.addEventListener('scroll', function() {
+        if (!header) return;
+        if (window.scrollY > 20) {
+          header.classList.add('is-scrolled');
+        } else {
+          header.classList.remove('is-scrolled');
+        }
+      }, { passive: true });
+    })();
+  </script>
+
+  <main class="flex-grow pt-24 sm:pt-28">
+    
+    <!-- CATALOG HEADER / FILTER SECTION -->
+    <section class="py-16 px-6 sm:px-10 max-w-[1600px] mx-auto border-b border-[#1e1e1e]/10">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div>
+          <span class="font-merriweather text-xs uppercase tracking-[0.2em] text-[#838282] font-bold block mb-2">Technical Dossiers</span>
+          <h1 class="text-4xl sm:text-6xl font-raleway font-bold text-ink uppercase tracking-tight">
+            Commercial Mattress Catalog
+          </h1>
+          <p class="font-merriweather text-base text-ink/70 max-w-2xl leading-relaxed mt-4">
+            Contract-grade mattresses, monolithic high-resilience foam slabs, and zoned pocket spring architectures engineered for multi-unit hospitality, healthcare facilities, and volume commercial dealerships.
+          </p>
+        </div>
+
+        <!-- FILTER PILLS -->
+        <div class="flex flex-wrap gap-2 font-merriweather text-xs font-bold uppercase tracking-wider">
+          <button type="button" onclick="filterCatalog('all', this)" class="catalog-filter-btn px-6 py-2.5 rounded-full border border-[#111111] bg-[#111111] text-white">
+            All Mattresses
+          </button>
+          <button type="button" onclick="filterCatalog('foam', this)" class="catalog-filter-btn px-6 py-2.5 rounded-full border border-[#1e1e1e]/20 bg-white text-ink hover:border-[#111111]">
+            Foam Mattresses
+          </button>
+          <button type="button" onclick="filterCatalog('spring', this)" class="catalog-filter-btn px-6 py-2.5 rounded-full border border-[#1e1e1e]/20 bg-white text-ink hover:border-[#111111]">
+            Hybrid Mattresses
+          </button>
+          <button type="button" onclick="filterCatalog('clinical', this)" class="catalog-filter-btn px-6 py-2.5 rounded-full border border-[#1e1e1e]/20 bg-white text-ink hover:border-[#111111]">
+            Clinical Mattresses
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- MATTRESS ARTICLES SPEC GRID -->
+        <!-- STORYBREEZE CATALOG CARDS SECTION (FRAMER STORYBREEZE COMPONENT) -->
+    <section class="py-12 px-6 sm:px-10 max-w-[1600px] mx-auto">
+      
+      <div class="story-breeze-root" id="storyBreezeRoot" role="region" aria-roledescription="carousel" aria-label="Commercial Mattress Catalog Cards" tabindex="0">
+        
+        <!-- CAROUSEL VIEWPORT -->
+        <div class="story-breeze-viewport" id="storyBreezeViewport">
+        <!-- STORYBREEZE CARD 1: MW-6000 Monolith -->
+        <div id="mw-6000" data-index="0" data-category="foam" class="story-breeze-card is-active" onclick="handleCardClick(0)">
+          
+          <!-- PHOTO COLUMN -->
+          <div class="sb-photo-wrap">
+            <img src="https://images.unsplash.com/photo-1691703028663-c5ff8cbb07c4?auto=format&fit=crop&w=1200&q=80" alt="60D High-Resilience Contract Monolith Foam Mattress" class="sb-photo-img">
+          </div>
+
+          <!-- DETAILS COLUMN -->
+          <div class="sb-details">
+            <div>
+              <h3 class="text-xl sm:text-2xl font-raleway font-bold text-ink uppercase tracking-tight">
+                60D High-Resilience Contract Monolith Foam Mattress
+              </h3>
+              <p class="sb-quote">
+                “Engineered with monolithic virgin graft polyol for high rebound elasticity and zero structural sagging over 10-year commercial hotel cycles.”
+              </p>
+
+              <!-- SPECS MATRIX -->
+              <div class="sb-specs-grid">
+                <div><span class="text-[#838282] block text-[10px] uppercase font-bold tracking-wider">Core Density</span><strong class="font-raleway text-sm text-ink font-bold block mt-0.5">60 kg/m³</strong></div><div><span class="text-[#838282] block text-[10px] uppercase font-bold tracking-wider">Coil Architecture</span><strong class="font-raleway text-sm text-ink font-bold block mt-0.5">Monolith (Zero Coil)</strong></div><div><span class="text-[#838282] block text-[10px] uppercase font-bold tracking-wider">Fire Defense</span><strong class="font-raleway text-sm text-ink font-bold block mt-0.5">16 CFR 1633 Certified</strong></div><div><span class="text-[#838282] block text-[10px] uppercase font-bold tracking-wider">Warranty</span><strong class="font-raleway text-sm text-ink font-bold block mt-0.5">10-Year Non-Prorated</strong></div>
+              </div>
+            </div>
+
+            <!-- ACTION BUTTONS & TELEMETRY -->
+            <div class="pt-2">
+              <div class="flex items-center justify-between mb-4 pb-2 border-b border-[#1e1e1e]/10">
+                <span class="font-merriweather text-xs text-[#838282] uppercase tracking-wider font-bold">Monolith Core Density</span>
+                <span class="font-raleway text-lg font-black text-ink">60 kg/m³</span>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <a href="wholesale-dealer-portal.html?sku=MW-6000" class="hpx-afb w-full" style="--btn-bg: #582C84; --btn-text: #ffffff; --btn-border: #582C84; --btn-fill-bg: #ffffff; --btn-fill-text: #ffffff; --btn-fill-bg-hover: #C0227B; --btn-fill-text-hover: #ffffff; --btn-arrow: #582C84; --btn-arrow-hover: #ffffff; --btn-duration: 450ms;">
+  <span class="hpx-afb__label">Add To RFQ Quote</span>
+  <div aria-hidden="true" class="hpx-afb__circle"></div>
+  <div aria-hidden="true" class="hpx-afb__mask">
+    <span class="hpx-afb__mask-label">Add To RFQ Quote</span>
+  </div>
+  <span aria-hidden="true" class="hpx-afb__icon">
+    <svg class="hpx-afb__icon-svg hpx-afb__icon-svg--enter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"></path>
+      <path d="m12 5 7 7-7 7"></path>
+    </svg>
+    <svg class="hpx-afb__icon-svg hpx-afb__icon-svg--exit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"></path>
+      <path d="m12 5 7 7-7 7"></path>
+    </svg>
+  </span>
+</a>
+                <a href="commercial-mattress-spec-sheets.html#mw-6000" class="hpx-afb w-full" style="--btn-bg: #ffffff; --btn-text: #111111; --btn-border: #111111; --btn-fill-bg: #111111; --btn-fill-text: #ffffff; --btn-fill-bg-hover: #111111; --btn-fill-text-hover: #ffffff; --btn-arrow: #ffffff; --btn-arrow-hover: #ffffff; --btn-duration: 450ms;">
+  <span class="hpx-afb__label">Download Spec PDF</span>
+  <div aria-hidden="true" class="hpx-afb__circle"></div>
+  <div aria-hidden="true" class="hpx-afb__mask">
+    <span class="hpx-afb__mask-label">Download Spec PDF</span>
+  </div>
+  <span aria-hidden="true" class="hpx-afb__icon">
+    <svg class="hpx-afb__icon-svg hpx-afb__icon-svg--enter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"></path>
+      <path d="m12 5 7 7-7 7"></path>
+    </svg>
+    <svg class="hpx-afb__icon-svg hpx-afb__icon-svg--exit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"></path>
+      <path d="m12 5 7 7-7 7"></path>
+    </svg>
+  </span>
+</a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- STORYBREEZE CARD 2: MW-Hybrid Pro -->
+        <div id="mw-hybrid" data-index="1" data-category="spring" class="story-breeze-card is-next" onclick="handleCardClick(1)">
+          
+          <!-- PHOTO COLUMN -->
+          <div class="sb-photo-wrap">
+            <img src="https://images.unsplash.com/photo-1560067174-e553b3647603?auto=format&fit=crop&w=1200&q=80" alt="5-Zone Encased Pocket Coil Commercial Hybrid" class="sb-photo-img">
+          </div>
+
+          <!-- DETAILS COLUMN -->
+          <div class="sb-details">
+            <div>
+              <h3 class="text-xl sm:text-2xl font-raleway font-bold text-ink uppercase tracking-tight">
+                5-Zone Encased Pocket Coil Commercial Hybrid
+              </h3>
+              <p class="sb-quote">
+                “Individually encased Swedish steel pocket coils with ultrasonic spunbond sleeves provide complete zero-motion transfer isolation for luxury hotel suites.”
+              </p>
+
+              <!-- SPECS MATRIX -->
+              <div class="sb-specs-grid">
+                <div><span class="text-[#838282] block text-[10px] uppercase font-bold tracking-wider">Spring System</span><strong class="font-raleway text-sm text-ink font-bold block mt-0.5">800+ 5-Zone Coils</strong></div><div><span class="text-[#838282] block text-[10px] uppercase font-bold tracking-wider">Edge Support</span><strong class="font-raleway text-sm text-ink font-bold block mt-0.5">4.5-inch High-Density Rail</strong></div><div><span class="text-[#838282] block text-[10px] uppercase font-bold tracking-wider">Fire Defense</span><strong class="font-raleway text-sm text-ink font-bold block mt-0.5">16 CFR 1633 Dual-Burner</strong></div><div><span class="text-[#838282] block text-[10px] uppercase font-bold tracking-wider">Warranty</span><strong class="font-raleway text-sm text-ink font-bold block mt-0.5">10-Year Non-Prorated</strong></div>
+              </div>
+            </div>
+
+            <!-- ACTION BUTTONS & TELEMETRY -->
+            <div class="pt-2">
+              <div class="flex items-center justify-between mb-4 pb-2 border-b border-[#1e1e1e]/10">
+                <span class="font-merriweather text-xs text-[#838282] uppercase tracking-wider font-bold">Tempered Barrel Springs</span>
+                <span class="font-raleway text-lg font-black text-ink">800+ Coils</span>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <a href="wholesale-dealer-portal.html?sku=MW-HYB-PRO" class="hpx-afb w-full" style="--btn-bg: #582C84; --btn-text: #ffffff; --btn-border: #582C84; --btn-fill-bg: #ffffff; --btn-fill-text: #ffffff; --btn-fill-bg-hover: #C0227B; --btn-fill-text-hover: #ffffff; --btn-arrow: #582C84; --btn-arrow-hover: #ffffff; --btn-duration: 450ms;">
+  <span class="hpx-afb__label">Add To RFQ Quote</span>
+  <div aria-hidden="true" class="hpx-afb__circle"></div>
+  <div aria-hidden="true" class="hpx-afb__mask">
+    <span class="hpx-afb__mask-label">Add To RFQ Quote</span>
+  </div>
+  <span aria-hidden="true" class="hpx-afb__icon">
+    <svg class="hpx-afb__icon-svg hpx-afb__icon-svg--enter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"></path>
+      <path d="m12 5 7 7-7 7"></path>
+    </svg>
+    <svg class="hpx-afb__icon-svg hpx-afb__icon-svg--exit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"></path>
+      <path d="m12 5 7 7-7 7"></path>
+    </svg>
+  </span>
+</a>
+                <a href="commercial-mattress-spec-sheets.html#mw-hybrid" class="hpx-afb w-full" style="--btn-bg: #ffffff; --btn-text: #111111; --btn-border: #111111; --btn-fill-bg: #111111; --btn-fill-text: #ffffff; --btn-fill-bg-hover: #111111; --btn-fill-text-hover: #ffffff; --btn-arrow: #ffffff; --btn-arrow-hover: #ffffff; --btn-duration: 450ms;">
+  <span class="hpx-afb__label">Download Spec PDF</span>
+  <div aria-hidden="true" class="hpx-afb__circle"></div>
+  <div aria-hidden="true" class="hpx-afb__mask">
+    <span class="hpx-afb__mask-label">Download Spec PDF</span>
+  </div>
+  <span aria-hidden="true" class="hpx-afb__icon">
+    <svg class="hpx-afb__icon-svg hpx-afb__icon-svg--enter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"></path>
+      <path d="m12 5 7 7-7 7"></path>
+    </svg>
+    <svg class="hpx-afb__icon-svg hpx-afb__icon-svg--exit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"></path>
+      <path d="m12 5 7 7-7 7"></path>
+    </svg>
+  </span>
+</a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- STORYBREEZE CARD 3: MW-Med-Iso Reversible -->
+        <div id="mw-clinical" data-index="2" data-category="clinical" class="story-breeze-card is-prev" onclick="handleCardClick(2)">
+          
+          <!-- PHOTO COLUMN -->
+          <div class="sb-photo-wrap">
+            <img src="https://images.unsplash.com/photo-1560185128-e173042f79dd?auto=format&fit=crop&w=1200&q=80" alt="Clinical-Grade Dual-Firmness Healthcare Mattress" class="sb-photo-img">
+          </div>
+
+          <!-- DETAILS COLUMN -->
+          <div class="sb-details">
+            <div>
+              <h3 class="text-xl sm:text-2xl font-raleway font-bold text-ink uppercase tracking-tight">
+                Clinical-Grade Dual-Firmness Healthcare Mattress
+              </h3>
+              <p class="sb-quote">
+                “Hermetically RF-welded seams with polyurethane antimicrobial fluid-proof barrier, engineered for continuous sanitization cycles and patient pressure redistribution.”
+              </p>
+
+              <!-- SPECS MATRIX -->
+              <div class="sb-specs-grid">
+                <div><span class="text-[#838282] block text-[10px] uppercase font-bold tracking-wider">Encasement</span><strong class="font-raleway text-sm text-ink font-bold block mt-0.5">RF-Welded Fluid-Proof PU</strong></div><div><span class="text-[#838282] block text-[10px] uppercase font-bold tracking-wider">Pressure Relief</span><strong class="font-raleway text-sm text-ink font-bold block mt-0.5">Zone-Contoured Top Layer</strong></div><div><span class="text-[#838282] block text-[10px] uppercase font-bold tracking-wider">Fire Defense</span><strong class="font-raleway text-sm text-ink font-bold block mt-0.5">Cal TB 129 & 16 CFR 1633</strong></div><div><span class="text-[#838282] block text-[10px] uppercase font-bold tracking-wider">Warranty</span><strong class="font-raleway text-sm text-ink font-bold block mt-0.5">7-Year Institutional</strong></div>
+              </div>
+            </div>
+
+            <!-- ACTION BUTTONS & TELEMETRY -->
+            <div class="pt-2">
+              <div class="flex items-center justify-between mb-4 pb-2 border-b border-[#1e1e1e]/10">
+                <span class="font-merriweather text-xs text-[#838282] uppercase tracking-wider font-bold">Medical Antimicrobial</span>
+                <span class="font-raleway text-lg font-black text-ink">70D Dual-Core</span>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <a href="wholesale-dealer-portal.html?sku=MW-MED-ISO" class="hpx-afb w-full" style="--btn-bg: #582C84; --btn-text: #ffffff; --btn-border: #582C84; --btn-fill-bg: #ffffff; --btn-fill-text: #ffffff; --btn-fill-bg-hover: #C0227B; --btn-fill-text-hover: #ffffff; --btn-arrow: #582C84; --btn-arrow-hover: #ffffff; --btn-duration: 450ms;">
+  <span class="hpx-afb__label">Add To RFQ Quote</span>
+  <div aria-hidden="true" class="hpx-afb__circle"></div>
+  <div aria-hidden="true" class="hpx-afb__mask">
+    <span class="hpx-afb__mask-label">Add To RFQ Quote</span>
+  </div>
+  <span aria-hidden="true" class="hpx-afb__icon">
+    <svg class="hpx-afb__icon-svg hpx-afb__icon-svg--enter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"></path>
+      <path d="m12 5 7 7-7 7"></path>
+    </svg>
+    <svg class="hpx-afb__icon-svg hpx-afb__icon-svg--exit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"></path>
+      <path d="m12 5 7 7-7 7"></path>
+    </svg>
+  </span>
+</a>
+                <a href="commercial-mattress-spec-sheets.html#mw-clinical" class="hpx-afb w-full" style="--btn-bg: #ffffff; --btn-text: #111111; --btn-border: #111111; --btn-fill-bg: #111111; --btn-fill-text: #ffffff; --btn-fill-bg-hover: #111111; --btn-fill-text-hover: #ffffff; --btn-arrow: #ffffff; --btn-arrow-hover: #ffffff; --btn-duration: 450ms;">
+  <span class="hpx-afb__label">Download Spec PDF</span>
+  <div aria-hidden="true" class="hpx-afb__circle"></div>
+  <div aria-hidden="true" class="hpx-afb__mask">
+    <span class="hpx-afb__mask-label">Download Spec PDF</span>
+  </div>
+  <span aria-hidden="true" class="hpx-afb__icon">
+    <svg class="hpx-afb__icon-svg hpx-afb__icon-svg--enter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"></path>
+      <path d="m12 5 7 7-7 7"></path>
+    </svg>
+    <svg class="hpx-afb__icon-svg hpx-afb__icon-svg--exit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"></path>
+      <path d="m12 5 7 7-7 7"></path>
+    </svg>
+  </span>
+</a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+        </div>
+
+        <!-- STORYBREEZE CONTROLS (ROUND ARROW BUTTONS & PILL DOTS) -->
+        <div class="sb-controls">
+          <button type="button" class="sb-round-btn" id="sbPrevBtn" aria-label="Previous mattress model" onclick="stepStory(-1)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 12H5M11 6l-6 6 6 6"/>
+            </svg>
+          </button>
+
+          <div class="sb-dots" id="sbDots">
+            <div class="sb-dot is-active" onclick="setStory(0)"></div>
+            <div class="sb-dot" onclick="setStory(1)"></div>
+            <div class="sb-dot" onclick="setStory(2)"></div>
+          </div>
+
+          <button type="button" class="sb-round-btn" id="sbNextBtn" aria-label="Next mattress model" onclick="stepStory(1)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- STORYBREEZE CONTROLLER SCRIPT -->
+    <script>
+      (function() {
+        let curIdx = 0;
+        const total = 3;
+        const cards = document.querySelectorAll('.story-breeze-card');
+        const dots = document.querySelectorAll('.sb-dot');
+        const root = document.getElementById('storyBreezeRoot');
+        const viewport = document.getElementById('storyBreezeViewport');
+
+        function updateCarousel(idx) {
+          curIdx = (idx + total) % total;
+          cards.forEach((card, i) => {
+            card.classList.remove('is-active', 'is-prev', 'is-next', 'is-hidden-left', 'is-hidden-right');
+            let diff = (i - curIdx + total) % total;
+            if (diff === 0) {
+              card.classList.add('is-active');
+            } else if (diff === 1) {
+              card.classList.add('is-next');
+            } else if (diff === total - 1) {
+              card.classList.add('is-prev');
+            } else {
+              card.classList.add(diff < total / 2 ? 'is-hidden-right' : 'is-hidden-left');
+            }
+          });
+
+          dots.forEach((dot, i) => {
+            dot.classList.toggle('is-active', i === curIdx);
+          });
+        }
+
+        window.setStory = function(idx) {
+          updateCarousel(idx);
+        };
+
+        window.stepStory = function(dir) {
+          updateCarousel(curIdx + dir);
+        };
+
+        window.handleCardClick = function(idx) {
+          if (idx !== curIdx) {
+            updateCarousel(idx);
+          }
+        };
+
+        // Category filter pills synchronization
+        window.filterCatalog = function(cat, btn) {
+          document.querySelectorAll('.catalog-filter-btn').forEach(b => {
+            b.className = 'catalog-filter-btn px-6 py-2.5 rounded-full border border-[#1e1e1e]/20 bg-white text-ink hover:border-[#111111]';
+          });
+          if (btn) {
+            btn.className = 'catalog-filter-btn px-6 py-2.5 rounded-full border border-[#111111] bg-[#111111] text-white';
+          }
+
+          if (cat === 'foam') setStory(0);
+          else if (cat === 'spring') setStory(1);
+          else if (cat === 'clinical') setStory(2);
+        };
+
+        // Keyboard navigation
+        if (root) {
+          root.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') {
+              e.preventDefault();
+              stepStory(1);
+            } else if (e.key === 'ArrowLeft') {
+              e.preventDefault();
+              stepStory(-1);
+            }
+          });
+        }
+
+        // Touch & pointer drag support
+        let startX = 0;
+        let isDragging = false;
+
+        if (viewport) {
+          viewport.addEventListener('pointerdown', (e) => {
+            startX = e.clientX;
+            isDragging = true;
+          });
+
+          window.addEventListener('pointerup', (e) => {
+            if (!isDragging) return;
+            isDragging = false;
+            let diffX = e.clientX - startX;
+            if (diffX < -50) stepStory(1);
+            else if (diffX > 50) stepStory(-1);
+          });
+        }
+      })();
+    </script>
+
+  </main>
+
+  <!-- DEEP DARK FOOTER -->
+  <!-- MONOLOG FOOTER COMPOSITION (CURATED VIA FOOTER.DESIGN/SITES/MONOLOG) -->
+  <!-- MONOLOG FOOTER COMPOSITION (INFUSED WITH MICROWELL LOGO CHROMATIC SYSTEM) -->
+  <!-- MONOLOG FOOTER COMPOSITION (EXACT REPLICA - DATA TAILORED TO MICROWELL) -->
+  <footer class="bg-[#0a0a0a] text-[#ddddd5] font-raleway pt-16 sm:pt-24 pb-12 sm:pb-16 border-t border-white/10 overflow-hidden">
+    <div class="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16">
+
+      <!-- TOP METADATA HEADER ROW: (● NAVIGATION) ON LEFT, ((COMPANY DETAILS)) ON RIGHT -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 pb-8 text-xs text-zinc-500 font-medium tracking-wider">
+        <div class="lg:col-span-7 flex items-center gap-2 text-zinc-400">
+          <span class="w-1.5 h-1.5 rounded-full bg-zinc-400 inline-block"></span>
+          <span class="uppercase tracking-widest text-[11px] font-semibold">Navigation</span>
+        </div>
+        <div class="lg:col-span-5 text-left lg:text-left text-zinc-500 uppercase tracking-widest text-[11px]">
+          (COMPANY DETAILS)
+        </div>
+      </div>
+
+      <!-- MAIN CONTENT ROW: LEFT COLUMN NAV LINKS STACK | RIGHT COLUMN SOCIAL & CONTACT -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 pt-2 pb-20">
+
+        <!-- LEFT COLUMN: LARGE EDITORIAL STACKED NAV LINKS WITH HAIRLINE DIVIDERS -->
+        <div class="lg:col-span-7 flex flex-col border-t border-white/10">
+          
+          <a href="index.html#philosophy" class="group py-4 sm:py-5 border-b border-white/10 flex items-center justify-between transition-colors hover:text-white">
+            <span class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white group-hover:translate-x-1.5 transition-transform duration-300">About</span>
+          </a>
+
+          <a href="commercial-mattress-catalog.html" class="group py-4 sm:py-5 border-b border-white/10 flex items-center justify-between transition-colors hover:text-white">
+            <span class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white group-hover:translate-x-1.5 transition-transform duration-300">Catalog</span>
+          </a>
+
+          <a href="commercial-mattress-spec-sheets.html" class="group py-4 sm:py-5 border-b border-white/10 flex items-center justify-between transition-colors hover:text-white">
+            <span class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white group-hover:translate-x-1.5 transition-transform duration-300">Specifications</span>
+          </a>
+
+          <a href="mattress-certifications-compliance.html" class="group py-4 sm:py-5 border-b border-white/10 flex items-center justify-between transition-colors hover:text-white">
+            <span class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white group-hover:translate-x-1.5 transition-transform duration-300">Compliance</span>
+          </a>
+
+          <a href="wholesale-dealer-portal.html" class="group py-4 sm:py-5 border-b border-white/10 flex items-center justify-between transition-colors hover:text-white">
+            <span class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white group-hover:translate-x-1.5 transition-transform duration-300">Wholesale</span>
+          </a>
+
+          <a href="wholesale-dealer-portal.html#rfq" class="group py-4 sm:py-5 border-b border-white/10 flex items-center justify-between transition-colors hover:text-white">
+            <span class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white group-hover:translate-x-1.5 transition-transform duration-300">Contact</span>
+          </a>
+
+        </div>
+
+        <!-- RIGHT COLUMN: SOCIALS, CERTIFIED BADGE, FACILITY LOCATION & EMAIL -->
+        <div class="lg:col-span-5 flex flex-col justify-start space-y-10 lg:pl-4">
+
+          <!-- SOCIAL LINKS WITH DIAGONAL ARROW ↗ -->
+          <div class="flex flex-col space-y-2.5">
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="text-base sm:text-lg font-medium text-white/90 hover:text-white flex items-center gap-1.5 transition-colors">
+              <span>LinkedIn</span>
+              <span class="text-sm">↗</span>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="text-base sm:text-lg font-medium text-white/90 hover:text-white flex items-center gap-1.5 transition-colors">
+              <span>Instagram</span>
+              <span class="text-sm">↗</span>
+            </a>
+            <a href="wholesale-dealer-portal.html" class="text-base sm:text-lg font-medium text-white/90 hover:text-white flex items-center gap-1.5 transition-colors">
+              <span>Wholesale Desk</span>
+              <span class="text-sm">↗</span>
+            </a>
+          </div>
+
+          <!-- CERTIFIED PARTNER / ACCREDITATION BADGE -->
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm bg-white/5 border border-white/10 text-xs text-zinc-300">
+              <span class="w-2 h-2 rounded-full bg-[#582C84]"></span>
+              <span class="font-semibold tracking-wide">ISO 9001:2015 & BIS Certified</span>
+            </div>
+          </div>
+
+          <!-- FACILITY DETAILS & REGION -->
+          <div class="text-sm text-zinc-400 leading-relaxed font-normal">
+            <div>Based in Mohali, Punjab, India.</div>
+            <div>Working Worldwide.</div>
+          </div>
+
+          <!-- EMAIL ADDRESS WITH ↳ ARROW -->
+          <div>
+            <a href="mailto:contact@microwell.in" class="inline-flex items-center gap-1.5 text-sm sm:text-base text-white hover:text-zinc-300 underline underline-offset-4 transition-colors">
+              <span>↳</span>
+              <span>contact@microwell.in</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- BOTTOM 3-COLUMN METADATA BAR (EXACT AS SCREENSHOT) -->
+      <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-start md:items-end text-xs text-zinc-500 gap-6">
+
+        <!-- BOTTOM LEFT: FACILITY & TIME REGION -->
+        <div class="leading-relaxed">
+          <div class="text-zinc-300 font-medium">Mohali City [IST]</div>
+          <div class="text-zinc-500">Manufacturing Facility & Central Depot</div>
+        </div>
+
+        <!-- BOTTOM CENTER: BACK TO TOP ↑ & ORDER DISPATCH -->
+        <div class="leading-relaxed text-left md:text-center">
+          <div>
+            <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="text-zinc-300 hover:text-white cursor-pointer bg-transparent border-0 p-0 font-medium transition-colors">
+              Back to top ↑
+            </button>
+          </div>
+          <div class="text-zinc-500">Booking wholesale orders for 2026–2027</div>
+        </div>
+
+        <!-- BOTTOM RIGHT: COPYRIGHT -->
+        <div class="text-left md:text-right text-zinc-500">
+          ©2026 MICROWELL MATTRESS
+        </div>
+
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- FILTER LOGIC -->
+  <script>
+    function filterCatalog(category, btn) {
+      document.querySelectorAll('.catalog-filter-btn').forEach(b => {
+        b.className = 'catalog-filter-btn px-6 py-2.5 rounded-full border border-[#1e1e1e]/20 bg-white text-ink hover:border-[#111111] transition-colors';
+      });
+      btn.className = 'catalog-filter-btn px-6 py-2.5 rounded-full border border-[#111111] bg-[#111111] text-white transition-colors';
+
+      document.querySelectorAll('.catalog-item').forEach(item => {
+        if (category === 'all' || item.getAttribute('data-category') === category) {
+          item.style.display = 'grid';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+
+  <!-- FRAMER WEB-PRELOAD CONTROLLER SCRIPT -->
+  <script>
+    (function() {
+      const preloader = document.getElementById('framerWebPreload');
+      const sloganEl = document.getElementById('preloadSlogan');
+      if (!preloader) return;
+
+      // Lock scrolling during preloader
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+
+      const slogans = [
+        "Exploring the world in comfort",
+        "Engineering commercial sleep systems",
+        "Precision contract manufacturing"
+      ];
+
+      let currentSloganIdx = 0;
+      let sloganTimer = null;
+
+      function renderSlogan(text, isExiting) {
+        if (!sloganEl) return;
+        sloganEl.innerHTML = '';
+        text.split('').forEach((char, idx) => {
+          const span = document.createElement('span');
+          span.className = 'preload-slogan-char' + (isExiting ? ' is-exiting' : '');
+          span.style.setProperty('--slogan-idx', idx);
+          span.textContent = char === ' ' ? '\u00A0' : char;
+          sloganEl.appendChild(span);
+        });
+      }
+
+      // Initial slogan with slight delay after title starts
+      setTimeout(() => {
+        renderSlogan(slogans[0], false);
+      }, 700);
+
+      // Cycle to second slogan at 1600ms
+      setTimeout(() => {
+        if (preloader.classList.contains('is-exiting')) return;
+        renderSlogan(slogans[0], true);
+        setTimeout(() => {
+          if (preloader.classList.contains('is-exiting')) return;
+          renderSlogan(slogans[1], false);
+        }, 300);
+      }, 1600);
+
+      let isDismissed = false;
+      function dismissPreloader() {
+        if (isDismissed) return;
+        isDismissed = true;
+        clearTimeout(sloganTimer);
+        
+        preloader.classList.add('is-exiting');
+        
+        // Restore document scroll
+        document.documentElement.style.overflow = '';
+        document.body.style.overflow = '';
+
+        // Remove from accessibility tree and hide completely after curtain transition
+        setTimeout(() => {
+          preloader.style.display = 'none';
+          preloader.setAttribute('aria-hidden', 'true');
+        }, 1050);
+      }
+
+      // Standard Framer Web-Preload timer: 2700ms on desktop / 3000ms on mobile
+      const exitDelay = window.innerWidth < 768 ? 2900 : 2600;
+      const autoDismissTimer = setTimeout(dismissPreloader, exitDelay);
+
+      // Allow instant skip on click/tap or ESC key
+      preloader.addEventListener('click', () => {
+        clearTimeout(autoDismissTimer);
+        dismissPreloader();
+      });
+
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' || e.key === ' ') {
+          clearTimeout(autoDismissTimer);
+          dismissPreloader();
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>

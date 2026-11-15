@@ -1,0 +1,25 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/catalog", "destination": "/commercial-mattress-catalog.html", "permanent": true },
+    { "source": "/catalog.html", "destination": "/commercial-mattress-catalog.html", "permanent": true },
+    { "source": "/spec-sheets", "destination": "/commercial-mattress-spec-sheets.html", "permanent": true },
+    { "source": "/spec-sheets.html", "destination": "/commercial-mattress-spec-sheets.html", "permanent": true },
+    { "source": "/compliance", "destination": "/mattress-certifications-compliance.html", "permanent": true },
+    { "source": "/compliance.html", "destination": "/mattress-certifications-compliance.html", "permanent": true },
+    { "source": "/onboarding", "destination": "/wholesale-dealer-portal.html", "permanent": true },
+    { "source": "/onboarding.html", "destination": "/wholesale-dealer-portal.html", "permanent": true }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "X-XSS-Protection", "value": "1; mode=block" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    }
+  ]
+}

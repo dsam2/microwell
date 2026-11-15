@@ -1,0 +1,47 @@
+[[redirects]]
+  from = "/catalog"
+  to = "/commercial-mattress-catalog.html"
+  status = 301
+
+[[redirects]]
+  from = "/catalog.html"
+  to = "/commercial-mattress-catalog.html"
+  status = 301
+
+[[redirects]]
+  from = "/spec-sheets"
+  to = "/commercial-mattress-spec-sheets.html"
+  status = 301
+
+[[redirects]]
+  from = "/spec-sheets.html"
+  to = "/commercial-mattress-spec-sheets.html"
+  status = 301
+
+[[redirects]]
+  from = "/compliance"
+  to = "/mattress-certifications-compliance.html"
+  status = 301
+
+[[redirects]]
+  from = "/compliance.html"
+  to = "/mattress-certifications-compliance.html"
+  status = 301
+
+[[redirects]]
+  from = "/onboarding"
+  to = "/wholesale-dealer-portal.html"
+  status = 301
+
+[[redirects]]
+  from = "/onboarding.html"
+  to = "/wholesale-dealer-portal.html"
+  status = 301
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

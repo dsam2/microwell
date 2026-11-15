@@ -1,0 +1,1718 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <!-- STRICTLY TWO FONTS: RALEWAY (HEADINGS/NAV/BADGES) & MERRIWEATHER (BODY/DESCRIPTIONS) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MICROWELL MATTRESS® — Commercial B2B Wholesale Systems</title>
+  <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+  
+  <!-- GOOGLE FONTS: RALEWAY & MERRIWEATHER -->
+  
+  
+  
+  <!-- GOOGLE FONTS: EDITORIAL SERIF ITALIC CONTRAST -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            canvas: '#f2f2f2',
+            ink: '#111111',
+            mutedGray: '#b6b5b5',
+            subtleGray: '#838282',
+            darkFooter: '#1e1e1e',
+            echo1: '#bfbfbf',
+            echo2: '#c9c9c9',
+            echo3: '#d1d1d1',
+            echo4: '#d9d9d9',
+            brand: {
+              purple: '#582C84',
+              magenta: '#C0227B'
+            }
+          },
+          fontFamily: {
+            raleway: ['Raleway', 'sans-serif'],
+            merriweather: ['Merriweather', 'serif'],
+            heading: ['Raleway', 'sans-serif'],
+            body: ['Merriweather', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --bg-canvas: #ffffff;
+      --text-ink: #111111;
+      --font-heading: 'Raleway', sans-serif;
+      --font-body: 'Merriweather', serif;
+      --font-mono: 'Raleway', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--text-ink);
+      font-family: var(--font-body);
+      font-weight: 400;
+    }
+
+    /* FULL HERO RIGHT-TO-LEFT MOVING MATTRESS GALLERY IN BACKGROUND */
+    @keyframes bgMarqueeRightToLeft {
+      0% {
+        transform: translate3d(0, 0, 0);
+      }
+      100% {
+        transform: translate3d(-50%, 0, 0);
+      }
+    }
+
+    .hero-bg-gallery-track {
+      display: flex;
+      height: 100%;
+      width: max-content;
+      animation: bgMarqueeRightToLeft 50s linear infinite;
+      will-change: transform;
+    }
+
+    h1, h2, h3, h4, h5, h6, .font-heading {
+      font-family: var(--font-heading);
+      letter-spacing: -0.05em;
+      line-height: 0.9;
+    }
+
+    /* 700ms cubic-bezier luxury image reveals & transitions */
+    .luxury-transition {
+      transition: transform 700ms cubic-bezier(0.77, 0, 0.175, 1), 
+                  filter 700ms cubic-bezier(0.77, 0, 0.175, 1),
+                  opacity 700ms cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    /* TYPOGRAPHIC ECHO STACK */
+    .echo-container {
+      position: relative;
+      display: inline-block;
+      user-select: none;
+    }
+    .echo-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      line-height: 0.9;
+      white-space: nowrap;
+    }
+    .echo-layer-4 { transform: translate(-0.16em, -0.16em); color: #d9d9d9; z-index: 1; }
+    .echo-layer-3 { transform: translate(-0.12em, -0.12em); color: #d1d1d1; z-index: 2; }
+    .echo-layer-2 { transform: translate(-0.08em, -0.08em); color: #c9c9c9; z-index: 3; }
+    .echo-layer-1 { transform: translate(-0.04em, -0.04em); color: #bfbfbf; z-index: 4; }
+    .echo-foreground {
+      position: relative;
+      z-index: 5;
+      color: #111111;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      line-height: 0.9;
+      white-space: nowrap;
+    }
+    .echo-foreground .echo-well {
+      color: #582C84;
+    }
+
+    /* Custom range slider styling */
+    input[type=range] {
+      accent-color: #111111;
+    }
+  
+    /* HPX ARROW FILL BUTTON (FRAMER COMPONENT COMPATIBLE) */
+    .hpx-afb {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      height: 44px;
+      width: fit-content;
+      min-width: fit-content;
+      cursor: pointer;
+      overflow: hidden;
+      border-radius: 9999px;
+      padding: 0 22px;
+      padding-right: calc(var(--icon-circle, 32px) + var(--icon-right, 6px) + 14px);
+      white-space: nowrap;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      line-height: 1;
+      text-rendering: geometricPrecision;
+      text-decoration: none;
+      --icon-circle: 32px;
+      --icon-right: 6px;
+      --circle-inset-y: calc((100% - var(--icon-circle)) / 2);
+      background-color: var(--btn-bg, #111111);
+      color: var(--btn-text, #ffffff);
+      border: 1px solid var(--btn-border, #111111);
+      transition: border-color var(--btn-duration, 450ms) cubic-bezier(0.785, 0.135, 0.15, 0.86),
+                  box-shadow var(--btn-duration, 450ms) cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    }
+
+    .hpx-afb.w-full {
+      width: 100% !important;
+      max-width: 100%;
+    }
+
+    .hpx-afb--sm {
+      height: 38px;
+      padding: 0 18px;
+      font-size: 11px;
+      --icon-circle: 26px;
+      --icon-right: 5px;
+      padding-right: calc(var(--icon-circle) + var(--icon-right) + 12px);
+    }
+
+    .hpx-afb--lg {
+      height: 52px;
+      padding: 0 30px;
+      font-size: 13px;
+      --icon-circle: 38px;
+      --icon-right: 7px;
+      padding-right: calc(var(--icon-circle) + var(--icon-right) + 18px);
+    }
+
+    .hpx-afb__label {
+      position: relative;
+      z-index: 1;
+      padding-bottom: 1px;
+    }
+
+    .hpx-afb__circle {
+      pointer-events: none;
+      position: absolute;
+      z-index: 2;
+      border-radius: 9999px;
+      background-color: var(--btn-fill-bg, #ffffff);
+      top: var(--circle-inset-y);
+      bottom: var(--circle-inset-y);
+      right: var(--icon-right);
+      left: calc(100% - var(--icon-right) - var(--icon-circle));
+      transition: background-color var(--btn-duration, 450ms) cubic-bezier(0.785, 0.135, 0.15, 0.86),
+                  inset var(--btn-duration, 450ms) cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    }
+
+    .hpx-afb:hover .hpx-afb__circle,
+    .hpx-afb:active .hpx-afb__circle {
+      background-color: var(--btn-fill-bg-hover, #ffffff);
+      inset: 0;
+    }
+
+    .hpx-afb__mask {
+      pointer-events: none;
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      padding: 0 22px;
+      padding-right: calc(var(--icon-circle, 32px) + var(--icon-right, 6px) + 14px);
+      color: var(--btn-fill-text, #111111);
+      clip-path: inset(var(--circle-inset-y) var(--icon-right) var(--circle-inset-y) calc(100% - var(--icon-right) - var(--icon-circle)));
+      transition: color var(--btn-duration, 450ms) cubic-bezier(0.785, 0.135, 0.15, 0.86),
+                  clip-path var(--btn-duration, 450ms) cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    }
+
+    .hpx-afb--sm .hpx-afb__mask {
+      padding: 0 18px;
+      padding-right: calc(var(--icon-circle) + var(--icon-right) + 12px);
+    }
+
+    .hpx-afb--lg .hpx-afb__mask {
+      padding: 0 30px;
+      padding-right: calc(var(--icon-circle) + var(--icon-right) + 18px);
+    }
+
+    .hpx-afb:hover .hpx-afb__mask,
+    .hpx-afb:active .hpx-afb__mask {
+      color: var(--btn-fill-text-hover, #111111);
+      clip-path: inset(0 0 0 0);
+    }
+
+    .hpx-afb__mask-label {
+      position: relative;
+      z-index: 1;
+      padding-bottom: 1px;
+      white-space: nowrap;
+    }
+
+    .hpx-afb__icon {
+      pointer-events: none;
+      position: absolute;
+      right: var(--icon-right);
+      top: 50%;
+      z-index: 3;
+      display: inline-flex;
+      height: var(--icon-circle);
+      width: var(--icon-circle);
+      flex-shrink: 0;
+      transform: translateY(-50%);
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: 9999px;
+      background-color: var(--btn-fill-bg, #ffffff);
+      color: var(--btn-arrow, #111111);
+      -webkit-mask-image: -webkit-radial-gradient(white, black);
+      mask-image: radial-gradient(white, black);
+      transition: background-color var(--btn-duration, 450ms) cubic-bezier(0.785, 0.135, 0.15, 0.86),
+                  color var(--btn-duration, 450ms) cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    }
+
+    .hpx-afb:hover .hpx-afb__icon,
+    .hpx-afb:active .hpx-afb__icon {
+      background-color: var(--btn-fill-bg-hover, #ffffff);
+      color: var(--btn-arrow-hover, #111111);
+    }
+
+    .hpx-afb__icon-svg {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 14px;
+      height: 14px;
+      transform-origin: center;
+      color: currentColor;
+      transition: transform var(--btn-duration, 450ms) cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    }
+
+    .hpx-afb--lg .hpx-afb__icon-svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .hpx-afb--sm .hpx-afb__icon-svg {
+      width: 12px;
+      height: 12px;
+    }
+
+    .hpx-afb__icon-svg--enter {
+      transform: translate(-170%, -50%) scale(0);
+    }
+
+    .hpx-afb:hover .hpx-afb__icon-svg--enter,
+    .hpx-afb:active .hpx-afb__icon-svg--enter {
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .hpx-afb__icon-svg--exit {
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .hpx-afb:hover .hpx-afb__icon-svg--exit,
+    .hpx-afb:active .hpx-afb__icon-svg--exit {
+      transform: translate(70%, -50%) scale(0);
+    }
+  
+    /* FIXED TRANSPARENT MODERN NAVBAR */
+    .modern-navbar-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 76px;
+      z-index: 50;
+      background-color: transparent;
+      border-bottom: 1px solid transparent;
+      transition: background-color 300ms ease, backdrop-filter 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
+    }
+
+    .modern-navbar-header.is-scrolled {
+      background-color: transparent !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      border-bottom: 1px solid transparent !important;
+      box-shadow: none !important;
+    }
+
+    .modern-navbar-inner {
+      max-width: 1600px;
+      width: 100%;
+      height: 100%;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    @media (min-width: 640px) {
+      .modern-navbar-inner {
+        padding: 0 36px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .modern-navbar-inner {
+        padding: 0 48px;
+      }
+    }
+
+    /* Brand Logo */
+    .modern-brand-logo-box {
+      width: 38px;
+      height: 38px;
+      border-radius: 9999px;
+      border: 1px solid rgba(30, 30, 30, 0.15);
+      padding: 2px;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      flex-shrink: 0;
+    }
+
+    /* Nav links pill group */
+    .modern-nav-group {
+      display: none;
+      align-items: center;
+      gap: 4px;
+      background-color: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 4px 5px;
+      border-radius: 9999px;
+      border: 1px solid rgba(30, 30, 30, 0.1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    @media (min-width: 920px) {
+      .modern-nav-group {
+        display: flex;
+      }
+    }
+
+    .modern-nav-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 16px;
+      border-radius: 9999px;
+      font-family: var(--font-heading);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: rgba(17, 17, 17, 0.75);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background-color 220ms cubic-bezier(0.16, 1, 0.3, 1),
+                  color 220ms cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .modern-nav-link:hover {
+      background-color: rgba(88, 44, 132, 0.08);
+      color: #582C84;
+      transform: translateY(-1px);
+    }
+
+    .modern-nav-link.is-active {
+      background-color: #582C84;
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(88, 44, 132, 0.28);
+    }
+
+    .modern-nav-link.is-active:hover {
+      background-color: #582C84;
+      color: #ffffff;
+      transform: none;
+    }
+
+    /* Mobile hamburger menu button */
+    .modern-menu-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      border-radius: 9999px;
+      border: 1px solid rgba(17, 17, 17, 0.15);
+      background-color: #ffffff;
+      cursor: pointer;
+      padding: 0;
+      transition: background-color 200ms ease, border-color 200ms ease, transform 150ms ease;
+    }
+
+    @media (min-width: 920px) {
+      .modern-menu-btn {
+        display: none;
+      }
+    }
+
+    .modern-menu-btn:hover {
+      background-color: rgba(17, 17, 17, 0.05);
+      border-color: rgba(17, 17, 17, 0.3);
+    }
+
+    .modern-menu-btn:active {
+      transform: scale(0.94);
+    }
+
+    .modern-menu-line {
+      width: 18px;
+      height: 2px;
+      background-color: #111111;
+      border-radius: 9999px;
+      transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1),
+                  opacity 200ms ease;
+      transform-origin: center;
+    }
+
+    .modern-menu-btn.is-open .modern-menu-line-1 {
+      transform: translateY(3.5px) rotate(45deg);
+    }
+
+    .modern-menu-btn.is-open .modern-menu-line-2 {
+      transform: translateY(-3.5px) rotate(-45deg);
+    }
+
+    /* Mobile drawer positioned directly beneath fixed top bar */
+    .modern-mobile-drawer {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(30, 30, 30, 0.1);
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transform: translateY(-8px);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1),
+                  opacity 280ms ease;
+    }
+
+    .modern-mobile-drawer.is-open {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modern-mobile-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 13px 18px;
+      border-radius: 9999px;
+      font-family: var(--font-heading);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #111111;
+      text-decoration: none;
+      background: rgba(17, 17, 17, 0.03);
+      transition: background-color 200ms ease, color 200ms ease;
+    }
+
+    .modern-mobile-link:hover {
+      background: #582C84;
+      color: #ffffff;
+    }
+
+    .modern-mobile-link.is-active {
+      background: #582C84;
+      color: #ffffff;
+    }
+
+    .modern-backdrop-overlay {
+      position: fixed;
+      inset: 0;
+      top: 76px;
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 300ms ease;
+      z-index: 48;
+    }
+
+    .modern-backdrop-overlay.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* ======================================================== */
+    /* FRAMER WEB-PRELOAD COMPONENT (MICROWELL SPECIFICATION)   */
+    /* ======================================================== */
+    .framer-web-preload {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 99999;
+      pointer-events: auto;
+      overflow: hidden;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .framer-preload-curtain {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      will-change: transform;
+      transform: translateY(0%);
+      transition: transform 1000ms cubic-bezier(1, 0.01, 0.38, 1.01);
+    }
+
+    .framer-web-preload.is-exiting .framer-preload-curtain {
+      transform: translateY(-100%);
+    }
+
+    /* Ambient Radial Blooms */
+    .preload-radial {
+      position: absolute;
+      width: 720px;
+      height: 720px;
+      border-radius: 9999px;
+      pointer-events: none;
+      filter: blur(70px);
+      -webkit-filter: blur(70px);
+      opacity: 0.8;
+      transform: scale(0.9);
+      transition: transform 2200ms cubic-bezier(0.16, 1, 0.3, 1), opacity 2200ms ease;
+    }
+
+    .preload-radial-purple {
+      bottom: -260px;
+      left: -260px;
+      background: radial-gradient(circle, rgba(88, 44, 132, 0.22) 0%, rgba(88, 44, 132, 0.08) 45%, rgba(255, 255, 255, 0) 70%);
+      animation: pulseRadialPurple 4000ms ease-in-out infinite alternate;
+    }
+
+    .preload-radial-magenta {
+      top: -260px;
+      right: -260px;
+      background: radial-gradient(circle, rgba(192, 34, 123, 0.18) 0%, rgba(192, 34, 123, 0.06) 45%, rgba(255, 255, 255, 0) 70%);
+      animation: pulseRadialMagenta 4000ms ease-in-out infinite alternate;
+    }
+
+    @keyframes pulseRadialPurple {
+      0% { transform: scale(0.85) translate(0, 0); opacity: 0.7; }
+      100% { transform: scale(1.05) translate(30px, -20px); opacity: 0.95; }
+    }
+
+    @keyframes pulseRadialMagenta {
+      0% { transform: scale(0.85) translate(0, 0); opacity: 0.7; }
+      100% { transform: scale(1.05) translate(-30px, 20px); opacity: 0.95; }
+    }
+
+    /* Center Content Cluster */
+    .preload-content-center {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 24px;
+      max-width: 900px;
+    }
+
+    /* Brand Badge */
+    .preload-brand-badge {
+      width: 56px;
+      height: 56px;
+      border-radius: 9999px;
+      background-color: #ffffff;
+      border: 1px solid rgba(30, 30, 30, 0.12);
+      box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.08);
+      padding: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      opacity: 0;
+      transform: scale(0.6) translateY(20px);
+      animation: badgeAppear 800ms cubic-bezier(0.16, 1, 0.3, 1) 150ms forwards;
+    }
+
+    @keyframes badgeAppear {
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    /* Title: MICROWELL Staggered Character Animation */
+    .preload-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.75rem, 8.5vw, 6.25rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      text-transform: uppercase;
+      color: #111111;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .preload-char {
+      display: inline-block;
+      opacity: 0.001;
+      filter: blur(12px);
+      transform: scale(1.8) translateY(30px);
+      animation: charAppear 900ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation-delay: calc(300ms + (var(--char-idx) * 55ms));
+    }
+
+    .preload-registered {
+      display: inline-block;
+      font-size: 0.35em;
+      vertical-align: super;
+      margin-left: 2px;
+      color: #838282;
+      opacity: 0;
+      transform: scale(0.5);
+      animation: charAppear 800ms cubic-bezier(0.16, 1, 0.3, 1) 850ms forwards;
+    }
+
+    @keyframes charAppear {
+      to {
+        opacity: 1;
+        filter: blur(0px);
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    /* Slogan Staggered Cycle */
+    .preload-slogan-wrapper {
+      margin-top: 20px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .preload-slogan {
+      font-family: var(--font-heading);
+      font-size: clamp(11px, 2vw, 14px);
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #838282;
+      margin: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 1px;
+    }
+
+    .preload-slogan-char {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(14px);
+      animation: sloganCharIn 350ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation-delay: calc(var(--slogan-idx) * 22ms);
+    }
+
+    .preload-slogan-char.is-exiting {
+      animation: sloganCharOut 250ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation-delay: calc(var(--slogan-idx) * 15ms);
+    }
+
+    @keyframes sloganCharIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes sloganCharOut {
+      to {
+        opacity: 0;
+        transform: translateY(-14px);
+      }
+    }
+
+    /* Skip hint */
+    .preload-skip-hint {
+      margin-top: 36px;
+      font-family: var(--font-heading);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(17, 17, 17, 0.3);
+      cursor: pointer;
+      transition: color 200ms ease;
+    }
+
+    .preload-skip-hint:hover {
+      color: rgba(17, 17, 17, 0.8);
+    }
+
+  
+    
+
+  
+    ::selection {
+      background-color: rgba(192, 34, 123, 0.22);
+      color: #582C84;
+    }
+  </style>
+</head>
+<body class="bg-canvas text-ink antialiased selection:bg-[#111111] selection:text-white">
+
+  <!-- FRAMER WEB-PRELOAD COMPONENT (MICROWELL EDITION) -->
+  <div id="framerWebPreload" class="framer-web-preload" aria-hidden="false">
+    <div class="framer-preload-curtain" id="preloadCurtain">
+      
+      <!-- RADIAL AMBIENT GLOWS -->
+      <div class="preload-radial preload-radial-purple"></div>
+      <div class="preload-radial preload-radial-magenta"></div>
+
+      <!-- CENTER CONTENT CLUSTER -->
+      <div class="preload-content-center">
+        
+        <!-- BRAND BADGE (MICROWELL MONOGRAM / EMBLEM) -->
+        <div class="preload-brand-badge" id="preloadBadge">
+          <img src="assets/logo.jpg" alt="Microwell Mattress Logo" class="w-full h-full object-contain">
+        </div>
+
+        <!-- STAGGERED CHARACTER TITLE: MICROWELL -->
+        <h1 class="preload-title" id="preloadTitle" aria-label="MICROWELL">
+          <span class="preload-char" style="--char-idx: 0">M</span>
+          <span class="preload-char" style="--char-idx: 1">I</span>
+          <span class="preload-char" style="--char-idx: 2">C</span>
+          <span class="preload-char" style="--char-idx: 3">R</span>
+          <span class="preload-char" style="--char-idx: 4">O</span>
+          <span class="preload-char" style="--char-idx: 5">W</span>
+          <span class="preload-char" style="--char-idx: 6">E</span>
+          <span class="preload-char" style="--char-idx: 7">L</span>
+          <span class="preload-char" style="--char-idx: 8">L</span>
+          <span class="preload-registered" style="--char-idx: 9">®</span>
+        </h1>
+
+        <!-- STAGGERED TEXT CYCLE (SLOGAN) -->
+        <div class="preload-slogan-wrapper">
+          <p class="preload-slogan" id="preloadSlogan"></p>
+        </div>
+
+        <!-- TAP TO SKIP HINT -->
+        <div class="preload-skip-hint">Click anywhere to skip</div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- STICKY HEADER (HEIGHT: 80PX, 90% OPACITY, BACKDROP-BLUR 12PX) -->
+  <!-- STICKY HEADER (HEIGHT: 80PX, 90% OPACITY, BACKDROP-BLUR 12PX) -->
+  <!-- MODERN NAVBAR (FRAMER MODERN-NAVBAR COMPONENT COMPATIBLE) -->
+  <header class="modern-navbar-header" id="modernNavbar">
+    <div class="modern-navbar-inner">
+      
+      <!-- BRAND IDENTITY -->
+      <a href="index.html" class="flex items-center gap-3.5 group flex-shrink-0">
+        <div class="modern-brand-logo-box">
+          <img src="assets/logo.jpg" alt="Microwell Mattress Logo" class="w-full h-full object-contain">
+        </div>
+        <div class="flex flex-col">
+          <span class="font-raleway font-bold text-xl tracking-[-0.04em] text-ink uppercase leading-none">
+            MICRO<span class="text-[#582C84]">WELL</span><span class="text-xs align-top font-merriweather ml-0.5">®</span>
+          </span>
+          <span class="font-raleway text-[9px] uppercase tracking-[0.2em] text-ink font-bold drop-shadow-[0_1px_2px_rgba(255,255,255,0.85)]">
+            EXPLORING THE WORLD IN COMFORT
+          </span>
+        </div>
+      </a>
+
+      <!-- RIGHT CLUSTER: MODERN PILL NAV LINK GROUP + CTA BUTTON + MOBILE TRIGGER -->
+      <div class="flex items-center gap-4 sm:gap-6 ml-auto">
+        
+        <!-- MODERN PILL NAV LINKS GROUP (FRAMER NAVLINKGROUP) -->
+        <nav class="modern-nav-group" aria-label="Main Navigation">
+          <a href="commercial-mattress-catalog.html" class="modern-nav-link ">Catalog</a>
+          <a href="commercial-mattress-spec-sheets.html" class="modern-nav-link ">Spec Sheets</a>
+          <a href="mattress-certifications-compliance.html" class="modern-nav-link ">Compliance</a>
+          <a href="wholesale-dealer-portal.html" class="modern-nav-link ">Dealer Portal</a>
+        </nav>
+
+        <!-- CTA BUTTON (FRAMER ARROWFILLBUTTON) -->
+        <div class="hidden sm:flex items-center">
+          <a href="wholesale-dealer-portal.html" class="hpx-afb hpx-afb--sm" style="--btn-bg: #582C84; --btn-text: #ffffff; --btn-border: #582C84; --btn-fill-bg: #ffffff; --btn-fill-text: #ffffff; --btn-fill-bg-hover: #C0227B; --btn-fill-text-hover: #ffffff; --btn-arrow: #582C84; --btn-arrow-hover: #ffffff; --btn-duration: 450ms;">
+  <span class="hpx-afb__label">Request Wholesale Quote</span>
+  <div aria-hidden="true" class="hpx-afb__circle"></div>
+  <div aria-hidden="true" class="hpx-afb__mask">
+    <span class="hpx-afb__mask-label">Request Wholesale Quote</span>
+  </div>
+  <span aria-hidden="true" class="hpx-afb__icon">
+    <svg class="hpx-afb__icon-svg hpx-afb__icon-svg--enter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"></path>
+      <path d="m12 5 7 7-7 7"></path>
+    </svg>
+    <svg class="hpx-afb__icon-svg hpx-afb__icon-svg--exit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"></path>
+      <path d="m12 5 7 7-7 7"></path>
+    </svg>
+  </span>
+</a>
+        </div>
+
+        <!-- MOBILE HAMBURGER BUTTON (FRAMER MENUICON: 2-LINE MORPHING SVG) -->
+        <button type="button" id="modernMenuToggle" class="modern-menu-btn" aria-label="Toggle navigation menu" onclick="toggleModernNavbar()">
+          <span class="modern-menu-line modern-menu-line-1"></span>
+          <span class="modern-menu-line modern-menu-line-2"></span>
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- MOBILE EXPANDING DRAWER (FRAMER PHONE OPENED VARIANT) -->
+    <div id="modernMobileDrawer" class="modern-mobile-drawer" aria-hidden="true">
+      <a href="commercial-mattress-catalog.html" class="modern-mobile-link ">
+        <span>Catalog</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="commercial-mattress-spec-sheets.html" class="modern-mobile-link ">
+        <span>Spec Sheets</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="mattress-certifications-compliance.html" class="modern-mobile-link ">
+        <span>Compliance</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="wholesale-dealer-portal.html" class="modern-mobile-link ">
+        <span>Dealer Portal</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <div class="pt-2">
+        <a href="wholesale-dealer-portal.html" class="hpx-afb w-full" style="--btn-bg: #582C84; --btn-text: #ffffff; --btn-border: #582C84; --btn-fill-bg: #ffffff; --btn-fill-text: #ffffff; --btn-fill-bg-hover: #C0227B; --btn-fill-text-hover: #ffffff; --btn-arrow: #582C84; --btn-arrow-hover: #ffffff; --btn-duration: 450ms;">
+  <span class="hpx-afb__label">Request Wholesale Quote</span>
+  <div aria-hidden="true" class="hpx-afb__circle"></div>
+  <div aria-hidden="true" class="hpx-afb__mask">
+    <span class="hpx-afb__mask-label">Request Wholesale Quote</span>
+  </div>
+  <span aria-hidden="true" class="hpx-afb__icon">
+    <svg class="hpx-afb__icon-svg hpx-afb__icon-svg--enter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"></path>
+      <path d="m12 5 7 7-7 7"></path>
+    </svg>
+    <svg class="hpx-afb__icon-svg hpx-afb__icon-svg--exit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"></path>
+      <path d="m12 5 7 7-7 7"></path>
+    </svg>
+  </span>
+</a>
+      </div>
+    </div>
+
+    <!-- BACKDROP OVERLAY FOR CLICK-OUTSIDE -->
+    <div id="modernBackdrop" class="modern-backdrop-overlay" onclick="toggleModernNavbar(false)"></div>
+  </header>
+
+  <!-- MODERN NAVBAR CONTROLLER SCRIPT -->
+  <script>
+    (function() {
+      const header = document.getElementById('modernNavbar');
+      const toggle = document.getElementById('modernMenuToggle');
+      const drawer = document.getElementById('modernMobileDrawer');
+      const backdrop = document.getElementById('modernBackdrop');
+
+      window.toggleModernNavbar = function(forceState) {
+        if (!toggle || !drawer || !backdrop) return;
+        const isOpen = typeof forceState === 'boolean' ? forceState : !drawer.classList.contains('is-open');
+        if (header) header.classList.toggle('is-menu-open', isOpen);
+        toggle.classList.toggle('is-open', isOpen);
+        drawer.classList.toggle('is-open', isOpen);
+        backdrop.classList.toggle('is-open', isOpen);
+        drawer.setAttribute('aria-hidden', String(!isOpen));
+      };
+
+      const heroEl = document.getElementById('heroSection');
+      function handleNavbarScroll() {
+        if (!header) return;
+        const scrollY = window.scrollY || window.pageYOffset;
+        if (scrollY > 20) {
+          header.classList.add('is-scrolled');
+        } else {
+          header.classList.remove('is-scrolled');
+        }
+      }
+      window.addEventListener('scroll', handleNavbarScroll, { passive: true });
+      handleNavbarScroll();
+    })();
+  </script>
+
+  <main>
+
+    <!-- HERO SECTION (FULL SCREEN, RIGHT-TO-LEFT MOVING MATTRESS IMAGE GALLERY AS BACKGROUND, ONLY MICROWELL) -->
+    <section class="min-h-screen w-full flex items-center justify-center text-center px-4 relative overflow-hidden border-b border-[#1e1e1e]/10 bg-white" id="heroSection">
+      
+      <!-- HERO BACKGROUND MATTRESS GALLERY (FULL SCREEN, RIGHT-TO-LEFT MOVING BEHIND TEXT) -->
+      <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+        <div class="hero-bg-gallery-track">
+          <!-- SET A (6 HIGH-RESOLUTION COMMERCIAL MATTRESS PANELS) -->
+          <div class="relative w-[340px] sm:w-[460px] md:w-[600px] lg:w-[720px] h-full flex-shrink-0 overflow-hidden border-r border-[#1e1e1e]/10">
+            <img src="https://images.unsplash.com/photo-1691703028663-c5ff8cbb07c4?auto=format&fit=crop&w=1400&q=80" alt="Commercial Monolith Foam Mattress" class="w-full h-full object-cover">
+          </div>
+          <div class="relative w-[340px] sm:w-[460px] md:w-[600px] lg:w-[720px] h-full flex-shrink-0 overflow-hidden border-r border-[#1e1e1e]/10">
+            <img src="https://images.unsplash.com/photo-1560067174-e553b3647603?auto=format&fit=crop&w=1400&q=80" alt="5-Zone Pocketed Coil Hybrid Mattress" class="w-full h-full object-cover">
+          </div>
+          <div class="relative w-[340px] sm:w-[460px] md:w-[600px] lg:w-[720px] h-full flex-shrink-0 overflow-hidden border-r border-[#1e1e1e]/10">
+            <img src="https://images.unsplash.com/photo-1560185128-e173042f79dd?auto=format&fit=crop&w=1400&q=80" alt="Hospitality Commercial Mattress" class="w-full h-full object-cover">
+          </div>
+          <div class="relative w-[340px] sm:w-[460px] md:w-[600px] lg:w-[720px] h-full flex-shrink-0 overflow-hidden border-r border-[#1e1e1e]/10">
+            <img src="https://images.unsplash.com/photo-1577509690643-15691207e526?auto=format&fit=crop&w=1400&q=80" alt="Orthopedic Dual-Core Mattress" class="w-full h-full object-cover">
+          </div>
+          <div class="relative w-[340px] sm:w-[460px] md:w-[600px] lg:w-[720px] h-full flex-shrink-0 overflow-hidden border-r border-[#1e1e1e]/10">
+            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=80" alt="Luxury Hotel Suite Mattress" class="w-full h-full object-cover">
+          </div>
+          <div class="relative w-[340px] sm:w-[460px] md:w-[600px] lg:w-[720px] h-full flex-shrink-0 overflow-hidden border-r border-[#1e1e1e]/10">
+            <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1400&q=80" alt="High-Resilience Mattress System" class="w-full h-full object-cover">
+          </div>
+
+          <!-- SET B (SEAMLESS IDENTICAL CLONE FOR INFINITE 60FPS RIGHT-TO-LEFT LOOP) -->
+          <div class="relative w-[340px] sm:w-[460px] md:w-[600px] lg:w-[720px] h-full flex-shrink-0 overflow-hidden border-r border-[#1e1e1e]/10">
+            <img src="https://images.unsplash.com/photo-1691703028663-c5ff8cbb07c4?auto=format&fit=crop&w=1400&q=80" alt="Commercial Monolith Foam Mattress" class="w-full h-full object-cover">
+          </div>
+          <div class="relative w-[340px] sm:w-[460px] md:w-[600px] lg:w-[720px] h-full flex-shrink-0 overflow-hidden border-r border-[#1e1e1e]/10">
+            <img src="https://images.unsplash.com/photo-1560067174-e553b3647603?auto=format&fit=crop&w=1400&q=80" alt="5-Zone Pocketed Coil Hybrid Mattress" class="w-full h-full object-cover">
+          </div>
+          <div class="relative w-[340px] sm:w-[460px] md:w-[600px] lg:w-[720px] h-full flex-shrink-0 overflow-hidden border-r border-[#1e1e1e]/10">
+            <img src="https://images.unsplash.com/photo-1560185128-e173042f79dd?auto=format&fit=crop&w=1400&q=80" alt="Hospitality Commercial Mattress" class="w-full h-full object-cover">
+          </div>
+          <div class="relative w-[340px] sm:w-[460px] md:w-[600px] lg:w-[720px] h-full flex-shrink-0 overflow-hidden border-r border-[#1e1e1e]/10">
+            <img src="https://images.unsplash.com/photo-1577509690643-15691207e526?auto=format&fit=crop&w=1400&q=80" alt="Orthopedic Dual-Core Mattress" class="w-full h-full object-cover">
+          </div>
+          <div class="relative w-[340px] sm:w-[460px] md:w-[600px] lg:w-[720px] h-full flex-shrink-0 overflow-hidden border-r border-[#1e1e1e]/10">
+            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=80" alt="Luxury Hotel Suite Mattress" class="w-full h-full object-cover">
+          </div>
+          <div class="relative w-[340px] sm:w-[460px] md:w-[600px] lg:w-[720px] h-full flex-shrink-0 overflow-hidden border-r border-[#1e1e1e]/10">
+            <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1400&q=80" alt="High-Resilience Mattress System" class="w-full h-full object-cover">
+          </div>
+        </div>
+      </div>
+
+      <!-- FOREGROUND HERO CONTENT (RELATIVE Z-10, ZERO WHITE BACKGROUND, ONLY MICROWELL) -->
+      <div class="relative z-10 flex items-center justify-center p-4">
+        <!-- TYPOGRAPHIC ECHO STACK (RALEWAY 900) -->
+        <div class="echo-container select-none">
+          <div class="echo-layer echo-layer-4 text-[14vw] lg:text-[180px] font-black">MICROWELL</div>
+          <div class="echo-layer echo-layer-3 text-[14vw] lg:text-[180px] font-black">MICROWELL</div>
+          <div class="echo-layer echo-layer-2 text-[14vw] lg:text-[180px] font-black">MICROWELL</div>
+          <div class="echo-layer echo-layer-1 text-[14vw] lg:text-[180px] font-black">MICROWELL</div>
+          <h1 class="echo-foreground text-[14vw] lg:text-[180px] font-black">MICRO<span class="echo-well">WELL</span></h1>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- PHILOSOPHY / NARRATIVE SECTION -->
+    <section class="py-24 px-6 sm:px-10 max-w-[1600px] mx-auto border-b border-[#1e1e1e]/10">
+      
+      <!-- VERTICAL HAIRLINE DIVIDER (1PX #1E1E1E/10) -->
+      <div class="w-[1px] h-20 bg-[#1e1e1e]/20 mx-auto mb-10"></div>
+
+      <!-- LARGE-SCALE EDITORIAL QUOTE WITH CONTRASTING SERIF ITALIC KEYWORD -->
+      <div class="max-w-5xl mx-auto text-center mb-20">
+        <h2 class="text-3xl sm:text-5xl md:text-6xl font-raleway font-bold text-ink leading-[1.05] tracking-[-0.04em]">
+          Engineering commercial <span class="font-merriweather italic font-normal text-brand-purple">comfort</span> with uncompromising contract durability.
+        </h2>
+      </div>
+
+    </section>
+
+    <!-- ASYMMETRICAL SHOWCASE GRID (12-COLUMNS, MIXED ASPECT RATIOS, ONLY MATTRESS PHOTOGRAPHY) -->
+    <section class="py-24 px-6 sm:px-10 max-w-[1600px] mx-auto border-b border-[#1e1e1e]/10">
+      
+      <div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div>
+          <span class="font-merriweather text-xs uppercase tracking-[0.2em] text-[#838282] font-bold block mb-2">Showcase Directory</span>
+          <h2 class="text-3xl sm:text-5xl font-raleway font-bold text-ink uppercase tracking-tight">
+            Commercial Mattress Models
+          </h2>
+        </div>
+        <p class="font-merriweather text-sm text-ink/70 max-w-md">
+          Uncompromised manufacturing specifications. Hover to inspect high-resolution editorial detailing.
+        </p>
+      </div>
+
+      <!-- 12-COLUMN ASYMMETRICAL GRID -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <!-- 1. LARGE 8-COLUMN RECTANGULAR CARD (ROUNDED-SM CORNERS) -->
+        <div class="lg:col-span-8 rounded-sm overflow-hidden group relative border border-[#1e1e1e]/10 bg-white h-[460px]">
+          <img 
+            src="https://images.unsplash.com/photo-1691703028663-c5ff8cbb07c4?auto=format&fit=crop&w=1200&q=80" 
+            alt="60D Monolith Foam Mattress" 
+            class="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 luxury-transition"
+          >
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none"></div>
+          <div class="absolute bottom-6 left-6 right-6 text-white flex justify-between items-end">
+            <div>
+              <span class="font-merriweather text-[11px] uppercase tracking-widest text-[#d9d9d9] font-bold block mb-1">MW-6000 Monolith</span>
+              <h3 class="font-raleway font-bold text-2xl sm:text-3xl uppercase tracking-tight text-white">60D High-Resilience Foam Mattress</h3>
+            </div>
+            <a href="commercial-mattress-catalog.html#mw-6000" class="hpx-afb hpx-afb--sm" style="--btn-bg: #582C84; --btn-text: #ffffff; --btn-border: #582C84; --btn-fill-bg: #ffffff; --btn-fill-text: #ffffff; --btn-fill-bg-hover: #C0227B; --btn-fill-text-hover: #ffffff; --btn-arrow: #582C84; --btn-arrow-hover: #ffffff; --btn-duration: 450ms;">
+  <span class="hpx-afb__label">Inspect Spec</span>
+  <div aria-hidden="true" class="hpx-afb__circle"></div>
+  <div aria-hidden="true" class="hpx-afb__mask">
+    <span class="hpx-afb__mask-label">Inspect Spec</span>
+  </div>
+  <span aria-hidden="true" class="hpx-afb__icon">
+    <svg class="hpx-afb__icon-svg hpx-afb__icon-svg--enter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"></path>
+      <path d="m12 5 7 7-7 7"></path>
+    </svg>
+    <svg class="hpx-afb__icon-svg hpx-afb__icon-svg--exit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"></path>
+      <path d="m12 5 7 7-7 7"></path>
+    </svg>
+  </span>
+</a>
+          </div>
+        </div>
+
+        <!-- 2. VERTICAL 4-COLUMN PILL-SHAPED CARD (FULL BORDER-RADIUS: 9999PX, HEIGHT: 500PX) -->
+        <div class="lg:col-span-4 h-[500px] rounded-full overflow-hidden group relative border border-[#1e1e1e]/10 bg-white mx-auto w-full max-w-[340px]">
+          <img 
+            src="https://images.unsplash.com/photo-1560067174-e553b3647603?auto=format&fit=crop&w=800&q=80" 
+            alt="MW-Hybrid Pro Pocket Spring Mattress" 
+            class="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 luxury-transition"
+          >
+          <div class="absolute inset-0 bg-black/10 group-hover:bg-black/20 luxury-transition"></div>
+          
+          <!-- CENTER CIRCULAR OVERLAY (VISIBLE ONLY ON HOVER, THIN BORDER) -->
+          <div class="absolute inset-0 flex items-center justify-center p-4">
+            <div class="w-40 h-40 rounded-full border border-white/80 bg-black/70 backdrop-blur-md flex flex-col items-center justify-center text-white text-center p-4 opacity-0 group-hover:opacity-100 luxury-transition">
+              <span class="font-raleway font-bold text-sm uppercase tracking-tight">MW-Hybrid Pro</span>
+              <span class="font-merriweather text-[10px] text-[#bfbfbf] tracking-widest uppercase mt-1">800+ Encased Coils</span>
+              <a href="commercial-mattress-catalog.html#mw-hybrid" class="hpx-afb hpx-afb--sm mt-2" style="--btn-bg: #582C84; --btn-text: #ffffff; --btn-border: #582C84; --btn-fill-bg: #ffffff; --btn-fill-text: #ffffff; --btn-fill-bg-hover: #C0227B; --btn-fill-text-hover: #ffffff; --btn-arrow: #582C84; --btn-arrow-hover: #ffffff; --btn-duration: 450ms;">
+  <span class="hpx-afb__label">View Details</span>
+  <div aria-hidden="true" class="hpx-afb__circle"></div>
+  <div aria-hidden="true" class="hpx-afb__mask">
+    <span class="hpx-afb__mask-label">View Details</span>
+  </div>
+  <span aria-hidden="true" class="hpx-afb__icon">
+    <svg class="hpx-afb__icon-svg hpx-afb__icon-svg--enter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"></path>
+      <path d="m12 5 7 7-7 7"></path>
+    </svg>
+    <svg class="hpx-afb__icon-svg hpx-afb__icon-svg--exit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"></path>
+      <path d="m12 5 7 7-7 7"></path>
+    </svg>
+  </span>
+</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. CIRCULAR 5-COLUMN ASPECT-SQUARE IMAGE -->
+        <div class="lg:col-span-5 rounded-full aspect-square overflow-hidden group relative border border-[#1e1e1e]/10 bg-white mx-auto w-full max-w-[420px]">
+          <img 
+            src="https://images.unsplash.com/photo-1560185128-e173042f79dd?auto=format&fit=crop&w=800&q=80" 
+            alt="MW-Med-Iso Healthcare Mattress" 
+            class="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 luxury-transition"
+          >
+          <div class="absolute inset-0 bg-black/20 group-hover:bg-black/50 luxury-transition flex flex-col items-center justify-center text-center p-8 text-white opacity-0 group-hover:opacity-100">
+            <span class="font-merriweather text-xs uppercase tracking-widest text-[#bfbfbf] font-bold">Clinical Grade</span>
+            <h3 class="font-raleway font-bold text-xl uppercase tracking-tight mt-1">MW-Med-Iso Reversible</h3>
+            <p class="font-merriweather text-xs text-[#d9d9d9] mt-2 max-w-xs">Dual-firmness 70D core with antimicrobial fluid-proof barrier.</p>
+            <a href="commercial-mattress-catalog.html#mw-clinical" class="hpx-afb hpx-afb--sm mt-4" style="--btn-bg: #582C84; --btn-text: #ffffff; --btn-border: #582C84; --btn-fill-bg: #ffffff; --btn-fill-text: #ffffff; --btn-fill-bg-hover: #C0227B; --btn-fill-text-hover: #ffffff; --btn-arrow: #582C84; --btn-arrow-hover: #ffffff; --btn-duration: 450ms;">
+  <span class="hpx-afb__label">View Dossier</span>
+  <div aria-hidden="true" class="hpx-afb__circle"></div>
+  <div aria-hidden="true" class="hpx-afb__mask">
+    <span class="hpx-afb__mask-label">View Dossier</span>
+  </div>
+  <span aria-hidden="true" class="hpx-afb__icon">
+    <svg class="hpx-afb__icon-svg hpx-afb__icon-svg--enter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"></path>
+      <path d="m12 5 7 7-7 7"></path>
+    </svg>
+    <svg class="hpx-afb__icon-svg hpx-afb__icon-svg--exit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"></path>
+      <path d="m12 5 7 7-7 7"></path>
+    </svg>
+  </span>
+</a>
+          </div>
+        </div>
+
+        <!-- 4. WIDE 7-COLUMN RECTANGLE (ROUNDED-SM CORNERS) -->
+        <div class="lg:col-span-7 rounded-sm overflow-hidden group relative border border-[#1e1e1e]/10 bg-white h-[420px]">
+          <img 
+            src="https://images.unsplash.com/photo-1577509690643-15691207e526?auto=format&fit=crop&w=1200&q=80" 
+            alt="Commercial Wholesale Mattress Specimen" 
+            class="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 luxury-transition"
+          >
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent pointer-events-none"></div>
+          <div class="absolute bottom-6 left-6 right-6 text-white flex justify-between items-end">
+            <div>
+              <span class="font-merriweather text-[11px] uppercase tracking-widest text-[#d9d9d9] font-bold block mb-1">Contract Lodging</span>
+              <h3 class="font-raleway font-bold text-2xl sm:text-3xl uppercase tracking-tight text-white">Full-Scale Intermodal Wholesale</h3>
+            </div>
+            <a href="commercial-mattress-spec-sheets.html" class="hpx-afb hpx-afb--sm" style="--btn-bg: #582C84; --btn-text: #ffffff; --btn-border: #582C84; --btn-fill-bg: #ffffff; --btn-fill-text: #ffffff; --btn-fill-bg-hover: #C0227B; --btn-fill-text-hover: #ffffff; --btn-arrow: #582C84; --btn-arrow-hover: #ffffff; --btn-duration: 450ms;">
+  <span class="hpx-afb__label">Submittal Index</span>
+  <div aria-hidden="true" class="hpx-afb__circle"></div>
+  <div aria-hidden="true" class="hpx-afb__mask">
+    <span class="hpx-afb__mask-label">Submittal Index</span>
+  </div>
+  <span aria-hidden="true" class="hpx-afb__icon">
+    <svg class="hpx-afb__icon-svg hpx-afb__icon-svg--enter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"></path>
+      <path d="m12 5 7 7-7 7"></path>
+    </svg>
+    <svg class="hpx-afb__icon-svg hpx-afb__icon-svg--exit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"></path>
+      <path d="m12 5 7 7-7 7"></path>
+    </svg>
+  </span>
+</a>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- BESPOKE SERVICE CARDS (3-COLUMN GRID, ROTATING 64X64 GEOMETRIC ICON CONTAINER) -->
+    <section class="py-24 px-6 sm:px-10 max-w-[1600px] mx-auto border-b border-[#1e1e1e]/10">
+      
+      <div class="mb-14 text-center max-w-2xl mx-auto">
+        <span class="font-merriweather text-xs uppercase tracking-[0.2em] text-[#838282] font-bold block mb-2">Wholesale Infrastructure</span>
+        <h2 class="text-3xl sm:text-5xl font-raleway font-bold text-ink uppercase tracking-tight">
+          Bespoke Commercial Services
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- CARD 1 -->
+        <div class="border border-[#1e1e1e]/10 p-8 sm:p-10 transition-all duration-300 hover:bg-white bg-transparent flex flex-col justify-between group rounded-sm hover:border-[#1e1e1e]/30">
+          <div>
+            <!-- GEOMETRIC 64X64 ICON CONTAINER (ROTATES 12 DEGREES ON HOVER) -->
+            <div class="w-16 h-16 border border-[#1e1e1e] flex items-center justify-center mb-8 transition-transform duration-300 group-hover:rotate-12 bg-canvas">
+              <svg class="w-8 h-8 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <rect x="3" y="3" width="18" height="18" stroke-width="1.5"/>
+                <path d="M3 9h18M9 21V9" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <h3 class="font-raleway font-bold text-2xl uppercase tracking-tight text-ink mb-3">
+              Volume Wholesale Tiers
+            </h3>
+            <p class="font-merriweather text-sm text-ink/70 leading-relaxed mb-8">
+              Direct factory floor schedule starting from 50 units up to full container loads (FCL). Preserved dealer margin protections across regional territories.
+            </p>
+          </div>
+          <a href="commercial-mattress-catalog.html" class="font-merriweather font-bold text-xs uppercase tracking-widest text-ink flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+            <span>View Pricing Schedules</span>
+            <span>→</span>
+          </a>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="border border-[#1e1e1e]/10 p-8 sm:p-10 transition-all duration-300 hover:bg-white bg-transparent flex flex-col justify-between group rounded-sm hover:border-[#1e1e1e]/30">
+          <div>
+            <!-- GEOMETRIC 64X64 ICON CONTAINER (ROTATES 12 DEGREES ON HOVER) -->
+            <div class="w-16 h-16 border border-[#1e1e1e] flex items-center justify-center mb-8 transition-transform duration-300 group-hover:rotate-12 bg-canvas">
+              <svg class="w-8 h-8 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="9" stroke-width="1.5"/>
+                <path d="M12 7v10M7 12h10" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <h3 class="font-raleway font-bold text-2xl uppercase tracking-tight text-ink mb-3">
+              Hospitality FF&amp;E Specs
+            </h3>
+            <p class="font-merriweather text-sm text-ink/70 leading-relaxed mb-8">
+              Complete architectural BIM/Revit libraries, custom ILD firmness tuning (18 to 48 ILD), and private label ticking for national hotel brand compliance.
+            </p>
+          </div>
+          <a href="commercial-mattress-spec-sheets.html" class="font-merriweather font-bold text-xs uppercase tracking-widest text-ink flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+            <span>Download BIM Packages</span>
+            <span>→</span>
+          </a>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="border border-[#1e1e1e]/10 p-8 sm:p-10 transition-all duration-300 hover:bg-white bg-transparent flex flex-col justify-between group rounded-sm hover:border-[#1e1e1e]/30">
+          <div>
+            <!-- GEOMETRIC 64X64 ICON CONTAINER (ROTATES 12 DEGREES ON HOVER) -->
+            <div class="w-16 h-16 border border-[#1e1e1e] flex items-center justify-center mb-8 transition-transform duration-300 group-hover:rotate-12 bg-canvas">
+              <svg class="w-8 h-8 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M4 17l6-6-6-6M12 19h8" stroke-width="1.5" stroke-linecap="square"/>
+              </svg>
+            </div>
+            <h3 class="font-raleway font-bold text-2xl uppercase tracking-tight text-ink mb-3">
+              Intermodal Dispatch
+            </h3>
+            <p class="font-merriweather text-sm text-ink/70 leading-relaxed mb-8">
+              Hydraulic compression roll-pack or flat pallet crates maximizing cube density. Automated EDI dispatch for rapid distribution across North American transit hubs.
+            </p>
+          </div>
+          <a href="wholesale-dealer-portal.html" class="font-merriweather font-bold text-xs uppercase tracking-widest text-ink flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+            <span>Dealer Onboarding Portal</span>
+            <span>→</span>
+          </a>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- LIVE INTERACTIVE FREIGHT & PALLET SIMULATOR -->
+    <section class="py-24 px-6 sm:px-10 max-w-[1600px] mx-auto border-b border-[#1e1e1e]/10">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        
+        <div class="lg:col-span-5">
+          <span class="font-merriweather text-xs uppercase tracking-[0.2em] text-[#838282] font-bold block mb-2">Freight Telemetry</span>
+          <h2 class="text-3xl sm:text-4xl font-raleway font-bold text-ink uppercase tracking-tight mb-4">
+            Palletization &amp; Trailer Simulator
+          </h2>
+          <p class="font-merriweather text-sm text-ink/70 leading-relaxed mb-8">
+            Calculate cubic volume displacement, pallet allocations, and dry van occupancy for commercial wholesale truckload commitments in real-time.
+          </p>
+          
+          <div class="space-y-6">
+            <!-- MODEL SELECTOR -->
+            <div>
+              <label class="block font-merriweather text-xs uppercase font-bold text-ink mb-2 tracking-wider">
+                Select Mattress Model
+              </label>
+              <div class="grid grid-cols-3 gap-2 font-merriweather text-xs">
+                <button type="button" onclick="setSimModel('MW-6000', 32, this)" class="sim-btn p-3 text-center border border-[#111111] bg-[#111111] text-white font-bold rounded-sm">
+                  MW-6000 Foam
+                </button>
+                <button type="button" onclick="setSimModel('MW-HYBRID', 48, this)" class="sim-btn p-3 text-center border border-[#1e1e1e]/20 bg-white text-ink font-bold hover:border-[#111111] rounded-sm">
+                  MW-Hybrid Pro
+                </button>
+                <button type="button" onclick="setSimModel('MW-CLINICAL', 38, this)" class="sim-btn p-3 text-center border border-[#1e1e1e]/20 bg-white text-ink font-bold hover:border-[#111111] rounded-sm">
+                  MW-Clinical Duo
+                </button>
+              </div>
+            </div>
+
+            <!-- UNIT QUANTITY SLIDER -->
+            <div>
+              <div class="flex justify-between items-baseline mb-2">
+                <label for="simVolume" class="font-merriweather text-xs uppercase font-bold text-ink tracking-wider">
+                  Target Production Units
+                </label>
+                <span class="font-raleway text-2xl font-bold text-ink" id="simVolumeDisplay">150 Units</span>
+              </div>
+              <input 
+                type="range" 
+                id="simVolume" 
+                min="50" 
+                max="800" 
+                step="10" 
+                value="150" 
+                oninput="updateSimulator()"
+                class="w-full h-1.5 bg-[#d9d9d9] appearance-none cursor-pointer rounded-full"
+              >
+              <div class="flex justify-between font-merriweather text-[11px] text-[#838282] mt-2">
+                <span>50 Units (MOQ)</span>
+                <span>320 Units (1 FTL)</span>
+                <span>800 Units (Volume)</span>
+              </div>
+            </div>
+
+            <!-- PACKING MODE -->
+            <div>
+              <label class="block font-merriweather text-xs uppercase font-bold text-ink mb-2 tracking-wider">
+                Packaging Method
+              </label>
+              <div class="grid grid-cols-2 gap-3 font-merriweather text-xs">
+                <label class="border border-[#1e1e1e]/20 p-3 bg-white flex items-center gap-2 cursor-pointer hover:border-[#111111] rounded-sm">
+                  <input type="radio" name="simPacking" value="roll" checked onchange="updateSimulator()">
+                  <span>Compressed Roll-Pack (20/plt)</span>
+                </label>
+                <label class="border border-[#1e1e1e]/20 p-3 bg-white flex items-center gap-2 cursor-pointer hover:border-[#111111] rounded-sm">
+                  <input type="radio" name="simPacking" value="flat" onchange="updateSimulator()">
+                  <span>Flat Pallet Crate (10/plt)</span>
+                </label>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- READOUT DISPLAY CARD -->
+        <div class="lg:col-span-7 border border-[#1e1e1e]/10 bg-white p-8 sm:p-10 rounded-sm">
+          <div class="flex justify-between items-center pb-6 border-b border-[#1e1e1e]/10 mb-8">
+            <span class="font-raleway font-bold text-lg uppercase tracking-tight text-ink">Trailer Load Telemetry</span>
+            <span class="px-3 py-1 rounded-full border border-emerald-600 bg-emerald-50 text-emerald-800 text-xs font-bold uppercase">
+              53ft Dry Van Standard
+            </span>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-8 text-center sm:text-left">
+            <div>
+              <span class="block text-xs uppercase text-[#838282] font-merriweather">Pallets Required</span>
+              <strong class="font-raleway text-3xl font-bold text-ink" id="outPallets">8</strong>
+            </div>
+            <div>
+              <span class="block text-xs uppercase text-[#838282] font-merriweather">Gross Weight</span>
+              <strong class="font-raleway text-3xl font-bold text-ink" id="outWeight">4,800 kg</strong>
+            </div>
+            <div>
+              <span class="block text-xs uppercase text-[#838282] font-merriweather">Cubic Footprint</span>
+              <strong class="font-raleway text-3xl font-bold text-ink" id="outCube">960 ft³</strong>
+            </div>
+            <div>
+              <span class="block text-xs uppercase text-[#838282] font-merriweather">Trailer Utilization</span>
+              <strong class="font-raleway text-3xl font-bold text-ink" id="outOccupancy">27%</strong>
+            </div>
+          </div>
+
+          <!-- TRAILER OCCUPANCY GAUGE BAR -->
+          <div class="mb-8">
+            <div class="flex justify-between font-merriweather text-xs text-[#838282] mb-1.5">
+              <span>Trailer Capacity Gauge</span>
+              <span id="gaugeLabel">8 of 30 Max Pallets</span>
+            </div>
+            <div class="w-full h-3 bg-canvas rounded-full overflow-hidden border border-[#1e1e1e]/10">
+              <div id="gaugeBar" class="h-full bg-[#111111] transition-all duration-300" style="width: 27%;"></div>
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row justify-between items-center gap-4 pt-6 border-t border-[#1e1e1e]/10">
+            <div>
+              <span class="font-merriweather text-xs text-[#838282] block">Current Applied Tier:</span>
+              <strong class="font-raleway text-lg uppercase text-ink" id="outTier">Tier A Standard Wholesale</strong>
+            </div>
+            <a href="wholesale-dealer-portal.html" id="simCtaLink" class="hpx-afb hpx-afb--lg" style="--btn-bg: #582C84; --btn-text: #ffffff; --btn-border: #582C84; --btn-fill-bg: #ffffff; --btn-fill-text: #ffffff; --btn-fill-bg-hover: #C0227B; --btn-fill-text-hover: #ffffff; --btn-arrow: #582C84; --btn-arrow-hover: #ffffff; --btn-duration: 450ms;">
+  <span class="hpx-afb__label">Request Palletized Quote & Freight Estimate →</span>
+  <div aria-hidden="true" class="hpx-afb__circle"></div>
+  <div aria-hidden="true" class="hpx-afb__mask">
+    <span class="hpx-afb__mask-label">Request Palletized Quote & Freight Estimate →</span>
+  </div>
+  <span aria-hidden="true" class="hpx-afb__icon">
+    <svg class="hpx-afb__icon-svg hpx-afb__icon-svg--enter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"></path>
+      <path d="m12 5 7 7-7 7"></path>
+    </svg>
+    <svg class="hpx-afb__icon-svg hpx-afb__icon-svg--exit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14"></path>
+      <path d="m12 5 7 7-7 7"></path>
+    </svg>
+  </span>
+</a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- DEEP DARK FOOTER (#1E1E1E WITH 60% OPACITY OFF-WHITE TEXT, 5% OPACITY TOP BORDER) -->
+  <!-- MONOLOG FOOTER COMPOSITION (CURATED VIA FOOTER.DESIGN/SITES/MONOLOG) -->
+  <!-- MONOLOG FOOTER COMPOSITION (INFUSED WITH MICROWELL LOGO CHROMATIC SYSTEM) -->
+  <!-- MONOLOG FOOTER COMPOSITION (EXACT REPLICA - DATA TAILORED TO MICROWELL) -->
+  <footer class="bg-[#0a0a0a] text-[#ddddd5] font-raleway pt-16 sm:pt-24 pb-12 sm:pb-16 border-t border-white/10 overflow-hidden">
+    <div class="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16">
+
+      <!-- TOP METADATA HEADER ROW: (● NAVIGATION) ON LEFT, ((COMPANY DETAILS)) ON RIGHT -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 pb-8 text-xs text-zinc-500 font-medium tracking-wider">
+        <div class="lg:col-span-7 flex items-center gap-2 text-zinc-400">
+          <span class="w-1.5 h-1.5 rounded-full bg-zinc-400 inline-block"></span>
+          <span class="uppercase tracking-widest text-[11px] font-semibold">Navigation</span>
+        </div>
+        <div class="lg:col-span-5 text-left lg:text-left text-zinc-500 uppercase tracking-widest text-[11px]">
+          (COMPANY DETAILS)
+        </div>
+      </div>
+
+      <!-- MAIN CONTENT ROW: LEFT COLUMN NAV LINKS STACK | RIGHT COLUMN SOCIAL & CONTACT -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 pt-2 pb-20">
+
+        <!-- LEFT COLUMN: LARGE EDITORIAL STACKED NAV LINKS WITH HAIRLINE DIVIDERS -->
+        <div class="lg:col-span-7 flex flex-col border-t border-white/10">
+          
+          <a href="index.html#philosophy" class="group py-4 sm:py-5 border-b border-white/10 flex items-center justify-between transition-colors hover:text-white">
+            <span class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white group-hover:translate-x-1.5 transition-transform duration-300">About</span>
+          </a>
+
+          <a href="commercial-mattress-catalog.html" class="group py-4 sm:py-5 border-b border-white/10 flex items-center justify-between transition-colors hover:text-white">
+            <span class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white group-hover:translate-x-1.5 transition-transform duration-300">Catalog</span>
+          </a>
+
+          <a href="commercial-mattress-spec-sheets.html" class="group py-4 sm:py-5 border-b border-white/10 flex items-center justify-between transition-colors hover:text-white">
+            <span class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white group-hover:translate-x-1.5 transition-transform duration-300">Specifications</span>
+          </a>
+
+          <a href="mattress-certifications-compliance.html" class="group py-4 sm:py-5 border-b border-white/10 flex items-center justify-between transition-colors hover:text-white">
+            <span class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white group-hover:translate-x-1.5 transition-transform duration-300">Compliance</span>
+          </a>
+
+          <a href="wholesale-dealer-portal.html" class="group py-4 sm:py-5 border-b border-white/10 flex items-center justify-between transition-colors hover:text-white">
+            <span class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white group-hover:translate-x-1.5 transition-transform duration-300">Wholesale</span>
+          </a>
+
+          <a href="wholesale-dealer-portal.html#rfq" class="group py-4 sm:py-5 border-b border-white/10 flex items-center justify-between transition-colors hover:text-white">
+            <span class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white group-hover:translate-x-1.5 transition-transform duration-300">Contact</span>
+          </a>
+
+        </div>
+
+        <!-- RIGHT COLUMN: SOCIALS, CERTIFIED BADGE, FACILITY LOCATION & EMAIL -->
+        <div class="lg:col-span-5 flex flex-col justify-start space-y-10 lg:pl-4">
+
+          <!-- SOCIAL LINKS WITH DIAGONAL ARROW ↗ -->
+          <div class="flex flex-col space-y-2.5">
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="text-base sm:text-lg font-medium text-white/90 hover:text-white flex items-center gap-1.5 transition-colors">
+              <span>LinkedIn</span>
+              <span class="text-sm">↗</span>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="text-base sm:text-lg font-medium text-white/90 hover:text-white flex items-center gap-1.5 transition-colors">
+              <span>Instagram</span>
+              <span class="text-sm">↗</span>
+            </a>
+            <a href="wholesale-dealer-portal.html" class="text-base sm:text-lg font-medium text-white/90 hover:text-white flex items-center gap-1.5 transition-colors">
+              <span>Wholesale Desk</span>
+              <span class="text-sm">↗</span>
+            </a>
+          </div>
+
+          <!-- CERTIFIED PARTNER / ACCREDITATION BADGE -->
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm bg-white/5 border border-white/10 text-xs text-zinc-300">
+              <span class="w-2 h-2 rounded-full bg-[#582C84]"></span>
+              <span class="font-semibold tracking-wide">ISO 9001:2015 & BIS Certified</span>
+            </div>
+          </div>
+
+          <!-- FACILITY DETAILS & REGION -->
+          <div class="text-sm text-zinc-400 leading-relaxed font-normal">
+            <div>Based in Mohali, Punjab, India.</div>
+            <div>Working Worldwide.</div>
+          </div>
+
+          <!-- EMAIL ADDRESS WITH ↳ ARROW -->
+          <div>
+            <a href="mailto:contact@microwell.in" class="inline-flex items-center gap-1.5 text-sm sm:text-base text-white hover:text-zinc-300 underline underline-offset-4 transition-colors">
+              <span>↳</span>
+              <span>contact@microwell.in</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- BOTTOM 3-COLUMN METADATA BAR (EXACT AS SCREENSHOT) -->
+      <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-start md:items-end text-xs text-zinc-500 gap-6">
+
+        <!-- BOTTOM LEFT: FACILITY & TIME REGION -->
+        <div class="leading-relaxed">
+          <div class="text-zinc-300 font-medium">Mohali City [IST]</div>
+          <div class="text-zinc-500">Manufacturing Facility & Central Depot</div>
+        </div>
+
+        <!-- BOTTOM CENTER: BACK TO TOP ↑ & ORDER DISPATCH -->
+        <div class="leading-relaxed text-left md:text-center">
+          <div>
+            <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="text-zinc-300 hover:text-white cursor-pointer bg-transparent border-0 p-0 font-medium transition-colors">
+              Back to top ↑
+            </button>
+          </div>
+          <div class="text-zinc-500">Booking wholesale orders for 2026–2027</div>
+        </div>
+
+        <!-- BOTTOM RIGHT: COPYRIGHT -->
+        <div class="text-left md:text-right text-zinc-500">
+          ©2026 MICROWELL MATTRESS
+        </div>
+
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- LIVE SIMULATOR JAVASCRIPT -->
+  <script>
+    let currentModel = 'MW-6000';
+    let unitWeight = 32; // kg
+
+    function setSimModel(model, weight, btn) {
+      currentModel = model;
+      unitWeight = weight;
+      document.querySelectorAll('.sim-btn').forEach(b => {
+        b.className = 'sim-btn p-3 text-center border border-[#1e1e1e]/20 bg-white text-ink font-bold hover:border-[#111111] rounded-sm';
+      });
+      btn.className = 'sim-btn p-3 text-center border border-[#111111] bg-[#111111] text-white font-bold rounded-sm';
+      updateSimulator();
+    }
+
+    function updateSimulator() {
+      const vol = parseInt(document.getElementById('simVolume').value);
+      document.getElementById('simVolumeDisplay').innerText = `${vol} Units`;
+
+      const isRoll = document.querySelector('input[name="simPacking"]:checked').value === 'roll';
+      const unitsPerPallet = isRoll ? 20 : 10;
+      const pallets = Math.ceil(vol / unitsPerPallet);
+      document.getElementById('outPallets').innerText = pallets;
+
+      const totalWeightKg = vol * unitWeight;
+      document.getElementById('outWeight').innerText = `${totalWeightKg.toLocaleString()} kg`;
+
+      const cuFtPerPallet = isRoll ? 120 : 160;
+      const totalCuFt = pallets * cuFtPerPallet;
+      document.getElementById('outCube').innerText = `${totalCuFt.toLocaleString()} ft³`;
+
+      const maxPallets53 = 30;
+      const occupancy = Math.min(100, Math.round((pallets / maxPallets53) * 100));
+      document.getElementById('outOccupancy').innerText = `${occupancy}%`;
+      document.getElementById('gaugeBar').style.width = `${occupancy}%`;
+      document.getElementById('gaugeLabel').innerText = `${pallets} of ${maxPallets53} Max Pallets`;
+
+      let tierText = 'Tier A Standard Wholesale';
+      if (vol >= 500) {
+        tierText = 'Tier C Contract FCL (-22%)';
+      } else if (vol >= 200) {
+        tierText = 'Tier B Volume Partner (-12%)';
+      }
+      document.getElementById('outTier').innerText = tierText;
+
+      const cta = document.getElementById('simCtaLink');
+      cta.href = `onboarding.html?sku=${currentModel}&units=${vol}`;
+    }
+
+    // Initialize on page load
+    updateSimulator();
+  </script>
+
+
+  <!-- FRAMER WEB-PRELOAD CONTROLLER SCRIPT -->
+  <script>
+    (function() {
+      const preloader = document.getElementById('framerWebPreload');
+      const sloganEl = document.getElementById('preloadSlogan');
+      if (!preloader) return;
+
+      // Lock scrolling during preloader
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+
+      const slogans = [
+        "Exploring the world in comfort",
+        "Engineering commercial sleep systems",
+        "Precision contract manufacturing"
+      ];
+
+      let currentSloganIdx = 0;
+      let sloganTimer = null;
+
+      function renderSlogan(text, isExiting) {
+        if (!sloganEl) return;
+        sloganEl.innerHTML = '';
+        text.split('').forEach((char, idx) => {
+          const span = document.createElement('span');
+          span.className = 'preload-slogan-char' + (isExiting ? ' is-exiting' : '');
+          span.style.setProperty('--slogan-idx', idx);
+          span.textContent = char === ' ' ? '\u00A0' : char;
+          sloganEl.appendChild(span);
+        });
+      }
+
+      // Initial slogan with slight delay after title starts
+      setTimeout(() => {
+        renderSlogan(slogans[0], false);
+      }, 700);
+
+      // Cycle to second slogan at 1600ms
+      setTimeout(() => {
+        if (preloader.classList.contains('is-exiting')) return;
+        renderSlogan(slogans[0], true);
+        setTimeout(() => {
+          if (preloader.classList.contains('is-exiting')) return;
+          renderSlogan(slogans[1], false);
+        }, 300);
+      }, 1600);
+
+      let isDismissed = false;
+      function dismissPreloader() {
+        if (isDismissed) return;
+        isDismissed = true;
+        clearTimeout(sloganTimer);
+        
+        preloader.classList.add('is-exiting');
+        
+        // Restore document scroll
+        document.documentElement.style.overflow = '';
+        document.body.style.overflow = '';
+
+        // Remove from accessibility tree and hide completely after curtain transition
+        setTimeout(() => {
+          preloader.style.display = 'none';
+          preloader.setAttribute('aria-hidden', 'true');
+        }, 1050);
+      }
+
+      // Standard Framer Web-Preload timer: 2700ms on desktop / 3000ms on mobile
+      const exitDelay = window.innerWidth < 768 ? 2900 : 2600;
+      const autoDismissTimer = setTimeout(dismissPreloader, exitDelay);
+
+      // Allow instant skip on click/tap or ESC key
+      preloader.addEventListener('click', () => {
+        clearTimeout(autoDismissTimer);
+        dismissPreloader();
+      });
+
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' || e.key === ' ') {
+          clearTimeout(autoDismissTimer);
+          dismissPreloader();
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>
