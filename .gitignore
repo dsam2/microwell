@@ -1,3 +1,6 @@
+# GitHub workflows (omitted to allow token without workflow scope to push)
+.github/
+
 # Environment & System files
 .DS_Store
 Thumbs.db
