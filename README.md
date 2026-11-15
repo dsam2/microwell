@@ -14,7 +14,6 @@ microwell/
 ├── DEVELOPMENT_GUIDELINES.md               # Architectural principles & design system
 ├── vercel.json                             # Vercel deployment configuration & redirects
 ├── netlify.toml                            # Netlify routing & header rules
-├── .github/workflows/deploy.yml            # GitHub Pages automated deployment pipeline
 ├── serve.py                                # Local threaded development server
 └── assets/
     └── logo.jpg                            # Official brand emblem logo
@@ -29,7 +28,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Deployment Options
 
-### 1. Vercel
+### 1. Vercel (Recommended)
 Connect this GitHub repository to [Vercel](https://vercel.com) for instant automatic zero-config deployments powered by `vercel.json`.
 
 ### 2. Netlify
@@ -37,7 +36,7 @@ Connect this GitHub repository to [Netlify](https://netlify.com) for edge-routed
 
 ### 3. GitHub Pages
 Enable GitHub Pages in your repository settings:
-`Settings -> Pages -> Build and deployment -> Source: GitHub Actions`.
+`Settings -> Pages -> Build and deployment -> Source: Deploy from a branch -> Branch: main / (root)`.
 
 ---
 © 2026 MICROWELL MATTRESS® INC. "EXPLORING THE WORLD IN COMFORT". ALL RIGHTS RESERVED.
